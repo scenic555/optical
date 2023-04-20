@@ -1,0 +1,141 @@
+#' @title Optimal item calibration
+#'
+#' @description
+#' Calibrate the items follow the model 2PL, 3PL, or mixture of 2PL and 3PL
+#' model.
+#'
+#' @param ip matrix with item parameters for all items (number of rows determines
+#' number of items number of column 2 (2PL) or 3 (3PL or mixed 2/3-PL with NA for
+#' 2PL-items in third column).
+
+#' @param oc optimality criterion: "D" (D-optimality, default),
+#' "I" (I-optimality with standard normal weight function), "A" (A-optimality).
+
+#' @param uncert if false (default), abilities are assumed to be known; if true,
+#'  handling of uncertainties of Bjermo et al. (2021) is used.
+
+#' @param ipop  matrix with item parameters for operational items
+#' (used if uncert=TRUE, only).
+
+#' @param imf the vector of step-lengths; default
+#' c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45).
+
+#' @param maxiter maximal number of iterations in each inner loop, the length
+#' of this vector defines the number of outer loops.
+
+#' @param eps convergence criterion (maximum violation of eq.th.), vector with
+#' value for each inner loop, but the same number for all inner loops is
+#' recommended.
+
+#' @param nnn number of new nodes added at each position in the adaptive grid,
+#' vector with value for each inner loop (nnn \[1] not used).
+
+#' @param nsp node spacing between new nodes, vector with value for each inner
+#'  loop (nsp \[1] is the spacing between nodes of the starting grid).
+
+#' @param sss step size stopping criterion.
+#' @param falpha factor alpha for adjusting the step size vector.
+#' @param sdr stop if design repeated (flag TRUE/FALSE).
+#' @param ig inner grid between -ig and ig.
+
+#' @param ex intervals of size < ex will be removed (consolidate);
+#' if ex=0, no consolidation will be done.
+
+#' @param integ if true (default), integrate() is used for computation of partial
+#'  information matrices; if false, Riemann rule is used.
+#'
+
+#' @return    Result of this function is a list with following instances:
+#'  \item{dd}{directional derivatives of optimal solution.}
+#'  \item{xi}{optimal solution.}
+#'  \item{t}{final grid of ability values which was used.}
+#'  \item{viomax}{largest violation of eq.th. from final solution (if < eps, alg.
+#'                  has converged, otherwise not).}
+#'  \item{h1}{interval boundaries for optimal solution.}
+#'  \item{mooiter}{monitoring iterations; information about each iteration to produce
+#'                  convergence plots.}
+#'  \item{time}{running time of algorithm in minutes.}
+#'  \item{oc}{optimality criterion ("D", "I", "A", "L").}
+#'  \item{L}{L-matrix (not for D-optimality).}
+#'
+#'
+#' @author
+#' Mahmood Ul Hassan (\email{scenic555@gmail.com});
+#' Frank Miller (\email{frank.miller@stat.su.se})
+#'
+#' @references
+#' Ul Hassan and Miller (2021). An exchange algorithm for optimal calibration
+#' of items in computerized achievement tests.\emph{Computational Statistics and
+#' Data Analysis, 157}: 107177. \doi{https://doi.org/10.1016/j.csda.2021.107177}
+#'
+#' Bjermo, Fackle-Fornius, and Miller (2021). Optimizing Calibration Designs with
+#' Uncertaintyin Abilities. Manuscript.\url{urn:nbn:se:su:diva-198065}
+#'
+#' @seealso \code{\link{drawdesign}}, \code{\link{convergenceplot}}
+#'
+#' @export optical
+#'
+#' @examples
+#' # 1PL-models with common discrimination parameter
+#' ip <- cbind(c(1.6, NA), c(-1, 1))
+#'
+#' yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
+#'                imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45),
+#'                maxiter=rep(300, 6), eps=rep(0.002, 6),
+#'                nnn=c(0, 50, 50, 200, 200, 200),
+#'                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
+#'                sss=0.001, falpha=1.08, ig=3, ex=0)
+#'
+#' yyy$h1
+
+
+
+optical <- function(ip, oc="D", uncert=FALSE, ipop,
+                    imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45), maxiter=rep(300, 6), eps=rep(0.002, 6),
+                    nnn=c(0, 50, 50, 200, 200, 200), nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
+                    sss=0.001, falpha=1.08, sdr=TRUE, ig=3, ex=0, integ=TRUE) {
+  starttime <- proc.time()
+  L   <- NULL
+  oc2 <- oc
+  # For I- and A-optimality, compute L-matrix and solve then L-optimality
+  if (oc=="I" || oc=="A") {
+    L   <- lmatrix(ip, oc)
+    oc2 <- "L"
+  }
+  # starting grid with node spacing nsp[1] between -ig and ig and spacing 10*nsp[1] between -7 and -ig and between ig and 7
+  t   <- c(seq(-ig, -7, by=-nsp[1]*10), seq(0, -ig, by=-nsp[1]), seq(0, ig, by=nsp[1]), seq(ig, 7, by=nsp[1]*10))
+  t   <- unique(sort(t))
+  xis <- start.design(t, ip)                  # starting design
+
+  oitermax  <- min(length(maxiter), length(eps), length(nnn), length(nsp))     # total number of outer iterations
+  oiterc    <- 1                                                               # counter for outer iterations
+  print(paste("---> Outer iteration =", oiterc))
+  # Run optimization (maxiter = maximum number of iterations, eps = stopping criterion for maximum violation of equivalence criterion)
+  yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf, maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss, falpha=falpha, sdr=sdr, xi=xis, integ=integ)
+  h1  <- intbounds(yy$xi, t)                  # Create boundaries for theta values
+  if (ex>0) h1 <- consolidate(h1, ex=ex)
+  mooiter <- cbind(oiterc, yy$moiter)         # Monitor outer (and inner) iterations
+  while (oiterc<oitermax) {
+    oiterc <- oiterc+1
+    if (yy$viomax>eps[oiterc]) {
+      # Adapt grid automatically
+      print(paste("---> Adapt grid; outer iteration =", oiterc))
+      t   <- adaptgrid(t, yy, nnn=nnn[oiterc], nsp=nsp[oiterc], ig=ig)
+      xis <- boundaries2design(t, h1)
+      # Run optimization
+      yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf, maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss, falpha=falpha, sdr=sdr, xi=xis, integ=integ)
+      h1  <- intbounds(yy$xi, t)              # Create boundaries for theta values
+      if (ex>0) h1 <- consolidate(h1, ex=ex)
+      mooiter <- rbind(mooiter, cbind(oiterc, yy$moiter))
+    }
+  }
+  if (yy$viomax>eps[oiterc]) { print(paste0("Failed to converge. Maximum violation of eq.th.=", round(yy$viomax,5), " instead of ", eps[oiterc], ".")) }
+  # Time in minutes
+  runtime <- (proc.time()-starttime)/60
+  list(dd=yy$dd, xi=yy$xi, t=t, viomax=yy$viomax, h1=h1, mooiter=mooiter, time=runtime, oc=oc, L=L)
+}
+
+
+
+
+
