@@ -3,3 +3,8 @@
 
 # optical
 This Package provides function that are used Optimal Item Calibaration in computerized achievement tests
+
+
+
+#Licence
+This package is free and open source software, licensed under GPL (>= 3).
