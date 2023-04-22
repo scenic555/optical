@@ -2,7 +2,7 @@
 ![GitHub](https://img.shields.io/github/license/scenic555/optical?logo=github)
 
 # optical
-This Package provides function that are used Optimal Item Calibaration in computerized achievement tests
+This Package provides function that are used for Optimal Item Calibaration in computerized achievement tests
 
 
 
