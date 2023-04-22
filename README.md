@@ -4,6 +4,10 @@
 # optical
 This Package provides function that are used for Optimal Item Calibaration in computerized achievement tests
 
+# Installation
+# The development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("scenic555/optical")
 
 
 # Licence
