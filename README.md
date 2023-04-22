@@ -31,8 +31,6 @@ yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
                sss=0.001, falpha=1.08, ig=3, ex=0)
 
 drawdesign(yyy=yyy, ip=ip, ylowl=-1000, refline=0.002, layout=1)
-
-
 ```
 
 # Licence
