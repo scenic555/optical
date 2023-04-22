@@ -7,13 +7,10 @@ This Package provides function that are used for Optimal Item Calibaration in co
 ## Installation
 
 ``` r
-# The easiest way to get dbplyr is to install the whole tidyverse:
+# The easiest way to install the optical package:
 # install.packages("optical")
 
-# Alternatively, install just dbplyr:
-install.packages("optical")
-
-# Or the the development version from GitHub:
+# Or the development version from GitHub:
 # install.packages("devtools")
 devtools::install_github("scenic555/optical")
 ```
