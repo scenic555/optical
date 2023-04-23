@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# <img src="man/figures/optical.png" align="right" height="138"/>
+
 # optical
 
 <!-- badges: start -->
