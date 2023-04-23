@@ -27,17 +27,23 @@ This Package provides function that are used for Optimal Item Calibaration in co
 
 ## Installation
 
+The easiest way to install the [**optical**](https://github.com/scenic555/optical/) package from CRAN using:
+
 ``` r
-# The easiest way to install the
-[**optical**](https://github.com/scenic555/optical/) package:
-# install.packages("optical")
+install.packages("optical")
 ```
 
-You can install the development version of [**optical**](https://github.com/scenic555/optical/) from [GitHub](https://github.com/) with:
+You can install the development version of [**optical**](https://github.com/scenic555/optical/) from [GitHub](https://github.com/) with the following code:
 
 ``` r
-# install.packages("devtools")
+# if not installed already on your computer, install devtools
+install.packages("devtools")
+
+# Install the package
 devtools::install_github("scenic555/optical")
+
+# Load the optical package
+library(optical)
 ```
 
 ## Example
@@ -62,3 +68,9 @@ drawdesign(yyy=yyy, ip=ip, ylowl=-1000, refline=0.002, layout=1)
 # Licence
 
 This package is free and open source software, licensed under GPL (\>= 3).
+
+# References
+
+Ul Hassan and Miller (2021). An exchange algorithm for optimal calibration of items in computerized achievement tests. Computational Statistics and Data Analysis, 157: 107177. <https://doi.org/10.1016/j.csda.2021.107177>
+
+Bjermo, Fackle-Fornius, and Miller (2021). Optimizing Calibration Designs with Uncertaintyin Abilities. Manuscript. <urn:nbn:se:su:diva-198065>
