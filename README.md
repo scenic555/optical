@@ -19,11 +19,13 @@ Calibaration in computerized achievement tests
 ## Installation
 
 ``` r
-# The easiest way to install the optical package:
+# The easiest way to install the
+[**optical**](https://github.com/scenic555/optical/) package:
 # install.packages("optical")
 ```
 
-You can install the development version of optical from
+You can install the development version of
+[**optical**](https://github.com/scenic555/optical/) from
 [GitHub](https://github.com/) with:
 
 ``` r

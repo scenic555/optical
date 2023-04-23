@@ -28,11 +28,12 @@ This Package provides function that are used for Optimal Item Calibaration in co
 ## Installation
 
 ``` r
-# The easiest way to install the optical package:
+# The easiest way to install the
+[**optical**](https://github.com/scenic555/optical/) package:
 # install.packages("optical")
 ```
 
-You can install the development version of optical from [GitHub](https://github.com/) with:
+You can install the development version of [**optical**](https://github.com/scenic555/optical/) from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
