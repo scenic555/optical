@@ -13,7 +13,7 @@ version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optic
 
 <!-- badges: end -->
 
-This Package provides function that are used for Optimal Item
+This package provides function that are used for Optimal Item
 Calibaration in computerized achievement tests
 
 ## Installation
