@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-This Package provides function that are used for Optimal Item Calibaration in computerized achievement tests
+This package provides function that are used for Optimal Item Calibaration in computerized achievement tests
 
 ## Installation
 
