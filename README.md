@@ -100,4 +100,4 @@ Statistics and Data Analysis, 157: 107177.
 
 Bjermo, Fackle-Fornius, and Miller (2021). Optimizing Calibration
 Designs with Uncertaintyin Abilities. Manuscript.
-<urn:nbn:se:su:diva-198065>
+[urn:nbn:se:su:diva-198065](https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Asu%3Adiva-198065)
