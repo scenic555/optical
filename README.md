@@ -10,6 +10,7 @@
 ![GitHub R package
 version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optical&logo=github)
 ![GitHub](https://img.shields.io/github/license/scenic555/optical?logo=github)
+[![R-CMD-check](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml)
 
 <!-- badges: end -->
 
