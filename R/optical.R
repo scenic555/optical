@@ -69,7 +69,7 @@
 #' Data Analysis, 157}: 107177. \doi{https://doi.org/10.1016/j.csda.2021.107177}
 #'
 #' Bjermo, Fackle-Fornius, and Miller (2021). Optimizing Calibration Designs with
-#' Uncertaintyin Abilities. Manuscript.\url{urn:nbn:se:su:diva-198065}
+#' Uncertaintyin Abilities. Manuscript.\url{https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Asu%3Adiva-198065}
 #'
 #' @seealso \code{\link{drawdesign}}, \code{\link{convergenceplot}}
 #'
