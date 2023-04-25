@@ -27,13 +27,13 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-The easiest way to install the [**optical**](https://github.com/scenic555/optical/) package from CRAN using:
+The easiest way to install the [**optical**](https://scenic555.github.io/optical/) package from CRAN using:
 
 ``` r
 install.packages("optical")
 ```
 
-You can install the development version of [**optical**](https://github.com/scenic555/optical/) from [GitHub](https://github.com/) with the following code:
+You can install the development version of [**optical**](https://scenic555.github.io/optical/) from [GitHub](https://github.com/) with the following code:
 
 ``` r
 # if not installed already on your computer, install devtools
