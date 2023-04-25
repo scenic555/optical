@@ -11,7 +11,8 @@
 version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optical&logo=github)
 ![GitHub](https://img.shields.io/github/license/scenic555/optical?logo=github)
 [![R-CMD-check](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml)
-
+[![CRAN
+status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.org/package=optical)
 <!-- badges: end -->
 
 `optical` package provides function that are used for Optimal Item
@@ -20,7 +21,7 @@ Calibaration in computerized achievement tests
 ## Installation
 
 The easiest way to install the
-[**optical**](https://github.com/scenic555/optical/) package from CRAN
+[**optical**](https://scenic555.github.io/optical/) package from CRAN
 using:
 
 ``` r
@@ -28,7 +29,7 @@ install.packages("optical")
 ```
 
 You can install the development version of
-[**optical**](https://github.com/scenic555/optical/) from
+[**optical**](https://scenic555.github.io/optical/) from
 [GitHub](https://github.com/) with the following code:
 
 ``` r
