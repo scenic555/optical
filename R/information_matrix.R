@@ -2,6 +2,7 @@
 # Calculate elements of information matrix at theta for given theta-vector t and
 # k items with parameter values in ip. Later we use this to calculate directional
 # derivatives. 1PL, 2PL or 3PL or mixed 2/3PL
+# t= vector of avility values
 #################################################################################
 #' @importFrom stats dnorm integrate pnorm
 

@@ -1,6 +1,10 @@
 ########################################################################################################################################
 # Initial starting design, 1PL, 2PL, 3PL, or mixed 2/3PL model
 # Based on asymptotic theorems in Ul Hassan and Miller (2021) on D-optimality and on heuristics
+# t=  vector of avility values
+# ip= matrix with item parameters for all items (number of rows determines
+#     number of items number of column 2 (2PL) or 3 (3PL or mixed 2/3-PL with NA for
+#    2PL-items in third column).
 ########################################################################################################################################
 start.design <- function(t, ip) {
   mod <- dim(ip)[2]   # number of columns in ip (if 2, then 2PL; if 3, then 3PL model or mixture)
