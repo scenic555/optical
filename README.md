@@ -13,6 +13,8 @@ version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optic
 [![R-CMD-check](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.org/package=optical)
+[![Codecov test
+coverage](https://codecov.io/gh/scenic555/optical/branch/main/graph/badge.svg)](https://app.codecov.io/gh/scenic555/optical?branch=main)
 <!-- badges: end -->
 
 `optical` package provides function that are used for Optimal Item

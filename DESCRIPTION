@@ -20,7 +20,9 @@ Maintainer: Mahmood Ul Hassan <scenic555@gmail.com>
 BugReports: https://github.com/scenic555/optical/issues
 URL: https://github.com/scenic555/optical.git
 Language: en-GB
-Suggests: testthat (>= 3.0.0)
+Suggests: 
+    covr,
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
     stats
