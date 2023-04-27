@@ -3,6 +3,7 @@ Type: Package
 Title: Optimal Item Calibration
 Version: 1.7.1
 Date: 2023-04-08
+Depends: R (>= 4.2.3)
 Description: What the package does (one paragraph).
 Authors@R: c(person("Mahmood", "Ul Hassan", role = c("aut", "cre"),
            email ="scenic555@gmail.com",
