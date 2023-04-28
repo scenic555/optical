@@ -15,15 +15,11 @@ version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optic
 status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.org/package=optical)
 [![test-coverage](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml)
 [![pages-build-deployment](https://github.com/scenic555/optical/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/scenic555/optical/actions/workflows/pages/pages-build-deployment)
+
+[![](https://github.com/scenic555.png?size=50)](https://github.com/scenic555)
+
 <!--[![Codecov test coverage](https://codecov.io/gh/scenic555/optical/branch/main/graph/badge.svg)](https://app.codecov.io/gh/scenic555/optical?branch=main)-->
 <!-- badges: end -->
-
-# Contributors
-
-``` r
-https://github.com/scenic555
-https://github.com/optdes
-```
 
 `optical` package provides function that are used for Optimal Item
 Calibaration in computerized achievement tests
