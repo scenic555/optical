@@ -25,7 +25,7 @@ efficiency <- function(t, ip, uncert=FALSE, ipop, xi, oc, L=NULL, items=FALSE, i
     eff <- exp(crit_rand - crit_od)^(1/np)
   }
   if (oc2=="L") {
-    eff <- (crit_rand / crit_od)^(1)  # should it be exponent 1/k instead of 1 ???
+    eff <- (crit_rand / crit_od)^(1)  
   }
   # compute total criterion values and total efficiency
   if (items==TRUE) {
