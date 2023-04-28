@@ -18,9 +18,15 @@ status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.or
 <!--[![Codecov test coverage](https://codecov.io/gh/scenic555/optical/branch/main/graph/badge.svg)](https://app.codecov.io/gh/scenic555/optical?branch=main)-->
 <!-- badges: end -->
 
+# Contributors
+
+``` r
+https://github.com/scenic555
+https://github.com/optdes
+```
+
 `optical` package provides function that are used for Optimal Item
 Calibaration in computerized achievement tests
-
 
 ## Installation
 
