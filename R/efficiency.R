@@ -3,7 +3,34 @@
 # If items = TRUE, criteria for optimal and random and the efficiency for each item are reported in each column of output;
 # last column are then total criteria and efficiency. D-, L-, I-, A-optimality
 ########################################################################################################################################
-efficiency <- function(t, ip, uncert=FALSE, ipop, xi, oc, L=NULL, items=FALSE, integ=TRUE) {
+
+#' Efficiency of optimal design
+#'
+#' @param t  vector of abilities
+#' @param ip matrix with item parameters for all items (number of rows determines
+#' number of items number of column 2 (2PL) or 3 (3PL or mixed 2/3-PL with NA for
+#' 2PL-items in third column).
+#' @param uncert if false (default), abilities are assumed to be known; if true,
+#'  handling of uncertainties of Bjermo et al. (2021) is used.
+#' @param ipop matrix with item parameters for operational items
+#' (used if uncert=TRUE, only).
+#' @param xi vector of optimal design
+#' @param oc optimality criterion: "D" (D-optimality, default),
+#' "I" (I-optimality with standard normal weight function), "A" (A-optimality).
+#' @param L L-optimality
+#' @param items if true (default), criteria for optimal and random and the efficiency
+#' for each item are reported in each column of output. Last column are then
+#' total criteria and efficiency. D-, L-, I-, A-optimality
+#' @param integ if true (default), integrate() is used for computation of partial
+#'  information matrices; if false, Riemann rule is used.
+#'
+#' @export efficiency
+
+
+
+
+efficiency <- function(t, ip, uncert=FALSE, ipop, xi, oc, L=NULL, items=FALSE,
+                       integ=TRUE) {
   if (items==FALSE) {
     np <- sum(!is.na(ip))        # number of parameters for whole model
   } else {
@@ -25,7 +52,7 @@ efficiency <- function(t, ip, uncert=FALSE, ipop, xi, oc, L=NULL, items=FALSE, i
     eff <- exp(crit_rand - crit_od)^(1/np)
   }
   if (oc2=="L") {
-    eff <- (crit_rand / crit_od)^(1)  
+    eff <- (crit_rand / crit_od)^(1)
   }
   # compute total criterion values and total efficiency
   if (items==TRUE) {

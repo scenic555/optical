@@ -2,6 +2,7 @@
 
 export(convergenceplot)
 export(drawdesign)
+export(efficiency)
 export(optical)
 importFrom(grDevices,dev.new)
 importFrom(graphics,abline)
