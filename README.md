@@ -21,6 +21,11 @@ status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.or
 `optical` package provides function that are used for Optimal Item
 Calibaration in computerized achievement tests
 
+# Contributors
+
+hassan and mahmood
+
+
 ## Installation
 
 The easiest way to install the
