@@ -12,8 +12,8 @@ version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optic
 ![GitHub](https://img.shields.io/github/downloads/scenic555/optical/total?logo=github)
 ![GitHub](https://img.shields.io/github/license/scenic555/optical?logo=github)
 [![R-CMD-check](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml)  
-[![test-coverage](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml)
 [![pages-build-deployment](https://github.com/scenic555/optical/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/scenic555/optical/actions/workflows/pages/pages-build-deployment)
+[![test-coverage](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.org/package=optical)
 
