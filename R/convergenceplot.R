@@ -2,7 +2,7 @@
 # Convergence plots
 # First panel monitors efficiency of design vs. iteration number
 # Second panel monitors violations of equivalence theorem vs. iteration number
-# Third panel monitors alpha vs. iteration number
+# Third panel monitors step size used vs. iteration number
 # Maybe add following in future verions:
 #   Fourth panel shows final grid
 ########################################################################################################################################
@@ -20,7 +20,7 @@
 #' \itemize{
 #'  \item {First panel monitors efficiency of design vs. iteration number}
 #'  \item {Second panel monitors violations of equivalence theorem vs. iteration number}
-#'  \item {Third panel monitors alpha vs. iteration number}
+#'  \item {Third panel monitors step size used vs. iteration number}
 #'   }
 #'
 #' @seealso \code{\link{drawdesign}}
