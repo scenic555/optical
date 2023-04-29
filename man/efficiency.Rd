@@ -19,9 +19,9 @@ efficiency(
 \arguments{
 \item{t}{vector of abilities}
 
-\item{ip}{matrix with item parameters for all items (number of rows determines
-number of items number of column 2 (2PL) or 3 (3PL or mixed 2/3-PL with NA for
-2PL-items in third column).}
+\item{ip}{matrix with item parameters for all items (number of rows determines number of items;
+number of columns is 2 (for 2PL; or 1PL with common a-parameter when NA in first column from second item)
+or 3 (for 3PL; or mixed 2/3-PL with NA for 2PL-items in third column)}
 
 \item{uncert}{if false (default), abilities are assumed to be known; if true,
 handling of uncertainties of Bjermo et al. (2021) is used.}
@@ -29,14 +29,15 @@ handling of uncertainties of Bjermo et al. (2021) is used.}
 \item{ipop}{matrix with item parameters for operational items
 (used if uncert=TRUE, only).}
 
-\item{xi}{vector of optimal design}
+\item{xi}{vector of a design to be compared with random design}
 
 \item{oc}{optimality criterion: "D" (D-optimality, default),
 "I" (I-optimality with standard normal weight function), "A" (A-optimality).}
 
-\item{L}{L-optimality}
+\item{L}{L-matrix (not used for D-optimality)}
 
-\item{items}{if true (default), criteria for optimal and random and the efficiency
+\item{items}{if false (default), only total block efficiency is returned; if true,
+criteria for optimal and random and the efficiency
 for each item are reported in each column of output. Last column are then
 total criteria and efficiency. D-, L-, I-, A-optimality}
 
