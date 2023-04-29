@@ -1,11 +1,12 @@
 #' @title Optimal item calibration
 #'
 #' @description
-#' Calibrate the items follow the model 2PL, 3PL, or mixture of 2PL and 3PL
-#' model.
+#' Calibrate items following a 2PL, 3PL, mixture of 2PL and 3PL
+#' model, or 2PL with common discrimination for all items (Rasch-type).
 #'
 #' @param ip matrix with item parameters for all items (number of rows determines
-#' number of items number of column 2 (2PL) or 3 (3PL or mixed 2/3-PL with NA for
+#' number of items number of column 2 (2PL or Rasch-type with NA from second item
+#' in first column) or 3 (3PL or mixed 2/3-PL with NA for
 #' 2PL-items in third column).
 
 #' @param oc optimality criterion: "D" (D-optimality, default),
@@ -24,17 +25,17 @@
 #' of this vector defines the number of outer loops.
 
 #' @param eps convergence criterion (maximum violation of eq.th.), vector with
-#' value for each inner loop, but the same number for all inner loops is
-#' recommended.
+#' value for each iteration in the outer loop, but the same number for all 
+#' iterations is recommended.
 
 #' @param nnn number of new nodes added at each position in the adaptive grid,
-#' vector with value for each inner loop (nnn \[1] not used).
+#' vector with value for each iteration in the outer loop (nnn \[1] not used).
 
-#' @param nsp node spacing between new nodes, vector with value for each inner
-#'  loop (nsp \[1] is the spacing between nodes of the starting grid).
+#' @param nsp node spacing between new nodes, vector with value for each iteration 
+#' in the outer loop (nsp \[1] is the spacing between nodes of the starting grid).
 
 #' @param sss step size stopping criterion.
-#' @param falpha factor alpha for adjusting the step size vector.
+#' @param falpha factor alpha for adjusting the step size vector (should be > 1).
 #' @param sdr stop if design repeated (flag TRUE/FALSE).
 #' @param ig inner grid between -ig and ig.
 
@@ -61,7 +62,7 @@
 #'
 #' @author
 #' Mahmood Ul Hassan (\email{scenic555@gmail.com});
-#' Frank Miller (\email{frank.miller@stat.su.se})
+#' Frank Miller (\email{frank.miller@liu.se})
 #'
 #' @references
 #' Ul Hassan and Miller (2021). An exchange algorithm for optimal calibration
