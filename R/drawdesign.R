@@ -11,8 +11,8 @@
 #' @param ablim ability limits; plots will be made in the range \[-ablim, ablim]
 #' @param ylowl  y low level (minimum value of directional derivative)
 #' @param refline  reference line correspond to desired minimum violation of equivalence theorem
-#' @param textout  If textout=TRUE, the item parameters will be printed for $m<5$
-#'                 and the efficiency vs. the random design
+#' @param textout  If textout=TRUE (default), the item parameters will be printed if number of items $<5$
+#'                 and the efficiency vs. the random design; if textout=FALSE, no such text is printed
 #' @param itemnum number of items
 #' @param layout  layouts of plots
 #' \itemize{
@@ -23,7 +23,7 @@
 #'   \item{Layout 5:} {third panel shows item characteristic curves}
 #'   \item{Layout 0:} {only one panel with design}
 #'   }
-#' @param colvec  vector of color sequence for items
+#' @param colvec  vector of color sequence for items (default is the R-default black, red, green, etc.)
 #'
 #' @seealso \code{\link{convergenceplot}}
 #'
