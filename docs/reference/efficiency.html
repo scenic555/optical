@@ -70,9 +70,9 @@
 
 
 <dt>ip</dt>
-<dd><p>matrix with item parameters for all items (number of rows determines
-number of items number of column 2 (2PL) or 3 (3PL or mixed 2/3-PL with NA for
-2PL-items in third column).</p></dd>
+<dd><p>matrix with item parameters for all items (number of rows determines number of items;
+number of columns is 2 (for 2PL; or 1PL with common a-parameter when NA in first column from second item)
+or 3 (for 3PL; or mixed 2/3-PL with NA for 2PL-items in third column)</p></dd>
 
 
 <dt>uncert</dt>
@@ -86,7 +86,7 @@ handling of uncertainties of Bjermo et al. (2021) is used.</p></dd>
 
 
 <dt>xi</dt>
-<dd><p>vector of optimal design</p></dd>
+<dd><p>vector of a design to be compared with random design</p></dd>
 
 
 <dt>oc</dt>
@@ -95,11 +95,12 @@ handling of uncertainties of Bjermo et al. (2021) is used.</p></dd>
 
 
 <dt>L</dt>
-<dd><p>L-optimality</p></dd>
+<dd><p>L-matrix (not used for D-optimality)</p></dd>
 
 
 <dt>items</dt>
-<dd><p>if true (default), criteria for optimal and random and the efficiency
+<dd><p>if false (default), only total block efficiency is returned; if true,
+criteria for optimal and random and the efficiency
 for each item are reported in each column of output. Last column are then
 total criteria and efficiency. D-, L-, I-, A-optimality</p></dd>
 
