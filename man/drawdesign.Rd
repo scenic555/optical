@@ -29,8 +29,8 @@ determines number of items; number of column 2 (2PL) or
 
 \item{refline}{reference line correspond to desired minimum violation of equivalence theorem}
 
-\item{textout}{If textout=TRUE, the item parameters will be printed for $m<5$
-and the efficiency vs. the random design}
+\item{textout}{If textout=TRUE (default), the item parameters will be printed if number of items $<5$
+and the efficiency vs. the random design; if textout=FALSE, no such text is printed}
 
 \item{itemnum}{number of items}
 
@@ -44,7 +44,7 @@ and the efficiency vs. the random design}
 \item{Layout 0:} {only one panel with design}
 }}
 
-\item{colvec}{vector of color sequence for items}
+\item{colvec}{vector of color sequence for items (default is the R-default black, red, green, etc.)}
 }
 \description{
 Generate plot for optimal design with four possible layouts. All layouts have design

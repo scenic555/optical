@@ -24,7 +24,8 @@ optical(
 }
 \arguments{
 \item{ip}{matrix with item parameters for all items (number of rows determines
-number of items number of column 2 (2PL) or 3 (3PL or mixed 2/3-PL with NA for
+number of items number of column 2 (2PL or Rasch-type with NA from second item
+in first column) or 3 (3PL or mixed 2/3-PL with NA for
 2PL-items in third column).}
 
 \item{oc}{optimality criterion: "D" (D-optimality, default),
@@ -43,18 +44,18 @@ c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45).}
 of this vector defines the number of outer loops.}
 
 \item{eps}{convergence criterion (maximum violation of eq.th.), vector with
-value for each inner loop, but the same number for all inner loops is
-recommended.}
+value for each iteration in the outer loop, but the same number for all
+iterations is recommended.}
 
 \item{nnn}{number of new nodes added at each position in the adaptive grid,
-vector with value for each inner loop (nnn [1] not used).}
+vector with value for each iteration in the outer loop (nnn [1] not used).}
 
-\item{nsp}{node spacing between new nodes, vector with value for each inner
-loop (nsp [1] is the spacing between nodes of the starting grid).}
+\item{nsp}{node spacing between new nodes, vector with value for each iteration
+in the outer loop (nsp [1] is the spacing between nodes of the starting grid).}
 
 \item{sss}{step size stopping criterion.}
 
-\item{falpha}{factor alpha for adjusting the step size vector.}
+\item{falpha}{factor alpha for adjusting the step size vector (should be > 1).}
 
 \item{sdr}{stop if design repeated (flag TRUE/FALSE).}
 
@@ -81,8 +82,8 @@ convergence plots.}
 \item{L}{L-matrix (not for D-optimality).}
 }
 \description{
-Calibrate the items follow the model 2PL, 3PL, or mixture of 2PL and 3PL
-model.
+Calibrate items following a 2PL, 3PL, mixture of 2PL and 3PL
+model, or 2PL with common discrimination for all items (Rasch-type).
 }
 \examples{
 # 1PL-models with common discrimination parameter
@@ -106,9 +107,10 @@ Bjermo, Fackle-Fornius, and Miller (2021). Optimizing Calibration Designs with
 Uncertaintyin Abilities. Manuscript. \href{https://urn.kb.se/resolve?urn=urn\%3Anbn\%3Ase\%3Asu\%3Adiva-198065}{urn:nbn:se:su:diva-198065}
 }
 \seealso{
-\code{\link{drawdesign}}, \code{\link{convergenceplot}}
+\code{\link{drawdesign}}, \code{\link{convergenceplot}},
+\code{\link{efficiency}}
 }
 \author{
 Mahmood Ul Hassan (\email{scenic555@gmail.com});
-Frank Miller (\email{frank.miller@stat.su.se})
+Frank Miller (\email{frank.miller@liu.se})
 }

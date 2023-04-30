@@ -25,13 +25,13 @@
 #' of this vector defines the number of outer loops.
 
 #' @param eps convergence criterion (maximum violation of eq.th.), vector with
-#' value for each iteration in the outer loop, but the same number for all 
+#' value for each iteration in the outer loop, but the same number for all
 #' iterations is recommended.
 
 #' @param nnn number of new nodes added at each position in the adaptive grid,
 #' vector with value for each iteration in the outer loop (nnn \[1] not used).
 
-#' @param nsp node spacing between new nodes, vector with value for each iteration 
+#' @param nsp node spacing between new nodes, vector with value for each iteration
 #' in the outer loop (nsp \[1] is the spacing between nodes of the starting grid).
 
 #' @param sss step size stopping criterion.
@@ -72,7 +72,8 @@
 #' Bjermo, Fackle-Fornius, and Miller (2021). Optimizing Calibration Designs with
 #' Uncertaintyin Abilities. Manuscript. \href{https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Asu%3Adiva-198065}{urn:nbn:se:su:diva-198065}
 #'
-#' @seealso \code{\link{drawdesign}}, \code{\link{convergenceplot}}
+#' @seealso \code{\link{drawdesign}}, \code{\link{convergenceplot}},
+#' \code{\link{efficiency}}
 #'
 #' @export optical
 #'

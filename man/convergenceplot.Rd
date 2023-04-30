@@ -21,7 +21,7 @@ Convergence plots have three panel.
 \itemize{
 \item {First panel monitors efficiency of design vs. iteration number}
 \item {Second panel monitors violations of equivalence theorem vs. iteration number}
-\item {Third panel monitors alpha vs. iteration number}
+\item {Third panel monitors step size used vs. iteration number}
 }
 }
 \examples{
