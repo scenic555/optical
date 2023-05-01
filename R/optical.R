@@ -45,7 +45,7 @@
 #' @param integ if true (default), integrate() is used for computation of partial
 #'  information matrices; if false, Riemann rule is used.
 #'
-#' @params show_progress FALSE (default), This ensures that the + symbols are
+#' @param show_progress FALSE (default), This ensures that the + symbols are
 #' printed on a line for each Iteration otherwise some output of the
 #' function is printed.
 
