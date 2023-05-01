@@ -4,7 +4,7 @@
 # Second panel monitors violations of equivalence theorem vs. iteration number
 # Third panel monitors step size used vs. iteration number
 # Maybe add following in future verions:
-#   Fourth panel shows final grid
+# Fourth panel shows final grid
 ########################################################################################################################################
 #' Convergence plot
 #'
