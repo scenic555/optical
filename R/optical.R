@@ -77,6 +77,18 @@
 #'
 #' @export optical
 #'
+#' # 2PL-models with discriminat and difficulty parameters
+#' ip <- cbind(c(1.6, 1.6),c(-1, 1))
+#'
+#' #' yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
+#'                imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45),
+#'                maxiter=rep(300, 6), eps=rep(0.002, 6),
+#'                nnn=c(0, 50, 50, 200, 200, 200),
+#'                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
+#'                sss=0.001, falpha=1.08, ig=3, ex=0)
+#'
+#' yyy$h1
+#'
 #' @examples
 #' # 1PL-models with common discrimination parameter
 #' ip <- cbind(c(1.6, NA), c(-1, 1))
@@ -105,7 +117,8 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
     oc2 <- "L"
   }
   # starting grid with node spacing nsp[1] between -ig and ig and spacing 10*nsp[1] between -7 and -ig and between ig and 7
-  t   <- c(seq(-ig, -7, by=-nsp[1]*10), seq(0, -ig, by=-nsp[1]), seq(0, ig, by=nsp[1]), seq(ig, 7, by=nsp[1]*10))
+  t   <- c(seq(-ig, -7, by=-nsp[1]*10), seq(0, -ig, by=-nsp[1]),
+           seq(0, ig, by=nsp[1]), seq(ig, 7, by=nsp[1]*10))
   t   <- unique(sort(t))
   xis <- start.design(t, ip)                  # starting design
 
@@ -113,7 +126,9 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
   oiterc    <- 1                                                               # counter for outer iterations
   print(paste("---> Outer iteration =", oiterc))
   # Run optimization (maxiter = maximum number of iterations, eps = stopping criterion for maximum violation of equivalence criterion)
-  yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf, maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss, falpha=falpha, sdr=sdr, xi=xis, integ=integ)
+  yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf,
+                   maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss,
+                   falpha=falpha, sdr=sdr, xi=xis, integ=integ)
   h1  <- intbounds(yy$xi, t)                  # Create boundaries for theta values
   if (ex>0) h1 <- consolidate(h1, ex=ex)
   mooiter <- cbind(oiterc, yy$moiter)         # Monitor outer (and inner) iterations
@@ -125,16 +140,21 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
       t   <- adaptgrid(t, yy, nnn=nnn[oiterc], nsp=nsp[oiterc], ig=ig)
       xis <- boundaries2design(t, h1)
       # Run optimization
-      yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf, maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss, falpha=falpha, sdr=sdr, xi=xis, integ=integ)
+      yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf,
+                       maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss,
+                       falpha=falpha, sdr=sdr, xi=xis, integ=integ)
       h1  <- intbounds(yy$xi, t)              # Create boundaries for theta values
       if (ex>0) h1 <- consolidate(h1, ex=ex)
       mooiter <- rbind(mooiter, cbind(oiterc, yy$moiter))
     }
   }
-  if (yy$viomax>eps[oiterc]) { print(paste0("Failed to converge. Maximum violation of eq.th.=", round(yy$viomax,5), " instead of ", eps[oiterc], ".")) }
+  if (yy$viomax>eps[oiterc])
+  { print(paste0("Failed to converge. Maximum violation of eq.th.=",
+                   round(yy$viomax,5), " instead of ", eps[oiterc], ".")) }
   # Time in minutes
   runtime <- (proc.time()-starttime)/60
-  list(dd=yy$dd, xi=yy$xi, t=t, viomax=yy$viomax, h1=h1, mooiter=mooiter, time=runtime, oc=oc, L=L)
+  list(dd=yy$dd, xi=yy$xi, t=t, viomax=yy$viomax, h1=h1, mooiter=mooiter,
+       time=runtime, oc=oc, L=L)
 }
 
 
