@@ -5,19 +5,18 @@
 \title{Efficiency of optimal design}
 \usage{
 efficiency(
-  t,
+  yyy,
   ip,
   uncert = FALSE,
   ipop,
-  xi,
-  oc,
+  oc = "D",
   L = NULL,
   items = FALSE,
   integ = TRUE
 )
 }
 \arguments{
-\item{t}{vector of abilities}
+\item{yyy}{a \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}}
 
 \item{ip}{matrix with item parameters for all items (number of rows determines number of items;
 number of columns is 2 (for 2PL; or 1PL with common a-parameter when NA in first column from second item)
@@ -28,8 +27,6 @@ handling of uncertainties of Bjermo et al. (2021) is used.}
 
 \item{ipop}{matrix with item parameters for operational items
 (used if uncert=TRUE, only).}
-
-\item{xi}{vector of a design to be compared with random design}
 
 \item{oc}{optimality criterion: "D" (D-optimality, default),
 "I" (I-optimality with standard normal weight function), "A" (A-optimality).}
@@ -45,5 +42,28 @@ total criteria and efficiency. D-, L-, I-, A-optimality}
 information matrices; if false, Riemann rule is used.}
 }
 \description{
-Efficiency of optimal design
+This function computes the efficiency of the D, I, and A optimal designs
+compared to the random design.
+}
+\examples{
+# 1PL-models with common discrimination parameter
+ip <- cbind(c(1.6, NA), c(-1, 1))
+
+yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
+               imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45),
+               nnn=c(0, 50, 50, 200, 200, 200),
+               nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
+               sss=0.001, falpha=1.08, ig=3, ex=0)
+
+# Efficiency of D-optimal design compared to random design
+efficiency(yyy, ip, oc="D")
+
+# Efficiency of I-optimal design compared to random design
+efficiency(yyy, ip, oc="I")
+
+# Efficiency of A-optimal design compared to random design
+efficiency(yyy, ip, oc="A")
+}
+\seealso{
+\code{\link{optical}}
 }
