@@ -19,7 +19,8 @@ optical(
   sdr = TRUE,
   ig = 3,
   ex = 0,
-  integ = TRUE
+  integ = TRUE,
+  show_progress = FALSE
 )
 }
 \arguments{

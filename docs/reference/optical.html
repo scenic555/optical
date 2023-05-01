@@ -67,7 +67,8 @@ model, or 2PL with common discrimination for all items (Rasch-type).</p>
 <span>  sdr <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  ig <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>  ex <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  integ <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  integ <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  show_progress <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -213,27 +214,9 @@ Frank Miller (<a href="mailto:frank.miller@liu.se">frank.miller@liu.se</a>)</p>
 <span class="r-in"><span>               nsp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.001</span>, <span class="fl">0.0001</span>, <span class="fl">0.0001</span>, <span class="fl">0.00001</span>, <span class="fl">0.00001</span>, <span class="fl">0.00001</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>               sss<span class="op">=</span><span class="fl">0.001</span>, falpha<span class="op">=</span><span class="fl">1.08</span>, ig<span class="op">=</span><span class="fl">3</span>, ex<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Outer iteration = 1 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  crit.val.= 12.73401  MV= 40.81529  SS= 0.005 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  crit.val.= 9.46119  MV= 1.379985  SS= 0.486 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  crit.val.= 9.40491  MV= 0.1849326  SS= 0.52488 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  crit.val.= 9.40367  MV= 0.0805773  SS= 0.23328 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  crit.val.= 9.40355  MV= 0.0455832  SS= 0.23328 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  crit.val.= 9.40351  MV= 0.0185879  SS= 0.23328 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  crit.val.= 9.40351  MV= 0.0053254  SS= 0.23328 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0054 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  crit.val.= 9.4035  MV= 0.0044175  SS= 0.005 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0046296 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0042867 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0039692 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0036751 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0034029 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0031508 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0029175 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0027013 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  crit.val.= 9.4035  MV= 0.0044175  SS= 0.0025012 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Outer iteration = 2 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  crit.val.= 9.4035  MV= 0.005521  SS= 0.005 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  crit.val.= 9.4035  MV= 0.001484  SS= 0.1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Adapt grid; outer iteration = 2 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ++</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">h1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]      [,2] [,3] [,4]</span>
@@ -252,29 +235,9 @@ Frank Miller (<a href="mailto:frank.miller@liu.se">frank.miller@liu.se</a>)</p>
 <span class="r-in"><span>               nsp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.001</span>, <span class="fl">0.0001</span>, <span class="fl">0.0001</span>, <span class="fl">0.00001</span>, <span class="fl">0.00001</span>, <span class="fl">0.00001</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>               sss<span class="op">=</span><span class="fl">0.001</span>, falpha<span class="op">=</span><span class="fl">1.08</span>, ig<span class="op">=</span><span class="fl">3</span>, ex<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Outer iteration = 1 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  crit.val.= 9.9919  MV= 22.85996  SS= 0.005 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  crit.val.= 7.58819  MV= 1.619451  SS= 0.486 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  crit.val.= 7.43106  MV= 0.051208  SS= 0.52488 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  crit.val.= 7.43096  MV= 0.0650075  SS= 0.11664 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  crit.val.= 7.43081  MV= 0.0272629  SS= 0.11664 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  crit.val.= 7.43079  MV= 0.0111793  SS= 0.11664 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  crit.val.= 7.43078  MV= 0.0023631  SS= 0.05832 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  crit.val.= 7.43078  MV= 0.0062379  SS= 0.0054 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  crit.val.= 7.43078  MV= 0.0023631  SS= 0.005 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  crit.val.= 7.43078  MV= 0.0062379  SS= 0.0046296 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  crit.val.= 7.43078  MV= 0.0023631  SS= 0.0042867 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  crit.val.= 7.43078  MV= 0.0062379  SS= 0.0039692 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  crit.val.= 7.43078  MV= 0.0023631  SS= 0.0036751 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  crit.val.= 7.43078  MV= 0.0062379  SS= 0.0034029 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  crit.val.= 7.43078  MV= 0.0023631  SS= 0.0031508 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  crit.val.= 7.43078  MV= 0.0062379  SS= 0.0029175 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  crit.val.= 7.43078  MV= 0.0023631  SS= 0.0027013 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  crit.val.= 7.43078  MV= 0.0062379  SS= 0.0025012 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  crit.val.= 7.43078  MV= 0.0023631  SS= 0.002316 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  crit.val.= 7.43078  MV= 0.0062379  SS= 0.0021444 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Outer iteration = 2 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  crit.val.= 7.43078  MV= 0.0066125  SS= 0.005 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  crit.val.= 7.43078  MV= 0.0017612  SS= 0.05 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Adapt grid; outer iteration = 2 </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ++</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">h1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]      [,2] [,3] [,4]</span>

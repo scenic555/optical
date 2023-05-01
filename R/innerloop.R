@@ -6,7 +6,9 @@
 # falpha = factor alpha for adjusting the step size vector
 # sdr    = stop if design repeated (flag TRUE/FALSE)
 ########################################################################################################################################
-innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf, maxiter=1000, eps=0.001, sss=0.0001, falpha=1.08, sdr=TRUE, integ=TRUE, xi) {
+innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf,
+                      maxiter=1000, eps=0.001, sss=0.0001, falpha=1.08,
+                      sdr=TRUE, integ=TRUE, xi,show_progress=FALSE) {
   n   <- length(t)      # number of different ability levels (grid size)
   k   <- dim(ip)[1]     # number of items
   mod <- dim(ip)[2]     # number of columns in ip (if 2, then 2PL; if 3, then 3PL model)
@@ -58,8 +60,14 @@ innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf, maxiter=10
     vss    <- c(vss, imf[mm])
     vssmin <- c(vssmin, imf[1])
     vssmax <- c(vssmax, imf[li])
-    cat(iterc, " crit.val.=", round(critval[mm], 5),
-              " MV=", round(viomax, 7), " SS=", round(imf[mm], 7),"\n")
+
+    if(show_progress) {
+    cat(iterc, " criterion.val.=", round(critval[mm], 5),
+            " Max.Violation=", round(viomax, 7), "Step size=", round(imf[mm], 7),"\n")
+    } else {
+      cat("+")
+    }
+
     if (sdr==TRUE) {
       if (iterc>16 && min(xi==xiold)==1) { circle <- TRUE }    # if design is the same as saved in last of iteration 8, 16, 24, ... then stop
       if (iterc %% 8 == 0) { xiold <- xi }                     # save results every 8th iteration to check later circulation
@@ -70,6 +78,11 @@ innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf, maxiter=10
   }
   # Matrix to monitor iterations
   moiter <- cbind(1:length(effi), effi, lvio, vss, vssmin, vssmax)
+
+  # Add line break after last iteration
+  if (!show_progress) {
+    cat("\n")
+  }
 
   list(dd=dd, xi=xi, viomax=viomax, moiter=moiter)
 }

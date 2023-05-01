@@ -45,6 +45,9 @@
 #' @param integ if true (default), integrate() is used for computation of partial
 #'  information matrices; if false, Riemann rule is used.
 #'
+#' @params show_progress FALSE (default), This ensures that the + symbols are
+#' printed on a line for each Iteration otherwise some output of the
+#' function is printed.
 
 #' @return    Result of this function is a list with following instances:
 #'  \item{dd}{directional derivatives of optimal solution.}
@@ -108,7 +111,8 @@
 optical <- function(ip, oc="D", uncert=FALSE, ipop,
                     imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45), maxiter=rep(300, 6), eps=rep(0.002, 6),
                     nnn=c(0, 50, 50, 200, 200, 200), nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
-                    sss=0.001, falpha=1.08, sdr=TRUE, ig=3, ex=0, integ=TRUE) {
+                    sss=0.001, falpha=1.08, sdr=TRUE, ig=3, ex=0, integ=TRUE,
+                    show_progress=FALSE) {
   starttime <- proc.time()
   L   <- NULL
   oc2 <- oc
@@ -129,7 +133,8 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
   # Run optimization (maxiter = maximum number of iterations, eps = stopping criterion for maximum violation of equivalence criterion)
   yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf,
                    maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss,
-                   falpha=falpha, sdr=sdr, xi=xis, integ=integ)
+                   falpha=falpha, sdr=sdr, xi=xis, integ=integ,
+                   show_progress=show_progress)
   h1  <- intbounds(yy$xi, t)                  # Create boundaries for theta values
   if (ex>0) h1 <- consolidate(h1, ex=ex)
   mooiter <- cbind(oiterc, yy$moiter)         # Monitor outer (and inner) iterations
@@ -137,13 +142,14 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
     oiterc <- oiterc+1
     if (yy$viomax>eps[oiterc]) {
       # Adapt grid automatically
-      cat("\033[1;31m---> Outer iteration =", oiterc, "\033[0m\n")
+      cat("\033[1;31m---> Adapt grid; outer iteration =", oiterc, "\033[0m\n")
       t   <- adaptgrid(t, yy, nnn=nnn[oiterc], nsp=nsp[oiterc], ig=ig)
       xis <- boundaries2design(t, h1)
       # Run optimization
       yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf,
                        maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss,
-                       falpha=falpha, sdr=sdr, xi=xis, integ=integ)
+                       falpha=falpha, sdr=sdr, xi=xis, integ=integ,
+                       show_progress=show_progress)
       h1  <- intbounds(yy$xi, t)              # Create boundaries for theta values
       if (ex>0) h1 <- consolidate(h1, ex=ex)
       mooiter <- rbind(mooiter, cbind(oiterc, yy$moiter))
