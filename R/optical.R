@@ -77,10 +77,11 @@
 #'
 #' @export optical
 #'
+#' @examples
 #' # 2PL-models with discriminat and difficulty parameters
 #' ip <- cbind(c(1.6, 1.6),c(-1, 1))
 #'
-#' #' yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
+#' yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
 #'                imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45),
 #'                maxiter=rep(300, 6), eps=rep(0.002, 6),
 #'                nnn=c(0, 50, 50, 200, 200, 200),
@@ -124,7 +125,7 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
 
   oitermax  <- min(length(maxiter), length(eps), length(nnn), length(nsp))     # total number of outer iterations
   oiterc    <- 1                                                               # counter for outer iterations
-  print(paste("---> Outer iteration =", oiterc))
+  cat("\033[1;31m---> Outer iteration =", oiterc, "\033[0m\n")
   # Run optimization (maxiter = maximum number of iterations, eps = stopping criterion for maximum violation of equivalence criterion)
   yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf,
                    maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss,
@@ -136,7 +137,7 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
     oiterc <- oiterc+1
     if (yy$viomax>eps[oiterc]) {
       # Adapt grid automatically
-      print(paste("---> Adapt grid; outer iteration =", oiterc))
+      cat("\033[1;31m---> Outer iteration =", oiterc, "\033[0m\n")
       t   <- adaptgrid(t, yy, nnn=nnn[oiterc], nsp=nsp[oiterc], ig=ig)
       xis <- boundaries2design(t, h1)
       # Run optimization

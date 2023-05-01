@@ -58,8 +58,8 @@ innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf, maxiter=10
     vss    <- c(vss, imf[mm])
     vssmin <- c(vssmin, imf[1])
     vssmax <- c(vssmax, imf[li])
-    print(paste(iterc, " crit.val.=", round(critval[mm], 5), " MV=", round(viomax, 7), " SS=", round(imf[mm], 7)))
-
+    cat(iterc, " crit.val.=", round(critval[mm], 5),
+              " MV=", round(viomax, 7), " SS=", round(imf[mm], 7),"\n")
     if (sdr==TRUE) {
       if (iterc>16 && min(xi==xiold)==1) { circle <- TRUE }    # if design is the same as saved in last of iteration 8, 16, 24, ... then stop
       if (iterc %% 8 == 0) { xiold <- xi }                     # save results every 8th iteration to check later circulation

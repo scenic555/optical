@@ -86,6 +86,18 @@ Calibrate items following a 2PL, 3PL, mixture of 2PL and 3PL
 model, or 2PL with common discrimination for all items (Rasch-type).
 }
 \examples{
+# 2PL-models with discriminat and difficulty parameters
+ip <- cbind(c(1.6, 1.6),c(-1, 1))
+
+yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
+               imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45),
+               maxiter=rep(300, 6), eps=rep(0.002, 6),
+               nnn=c(0, 50, 50, 200, 200, 200),
+               nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
+               sss=0.001, falpha=1.08, ig=3, ex=0)
+
+yyy$h1
+
 # 1PL-models with common discrimination parameter
 ip <- cbind(c(1.6, NA), c(-1, 1))
 
