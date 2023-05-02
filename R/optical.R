@@ -56,8 +56,8 @@
 #'  \item{viomax}{largest violation of eq.th. from final solution (if < eps, alg.
 #'                  has converged, otherwise not).}
 #'  \item{h1}{interval boundaries for optimal solution.}
-#'  \item{ht}{Refine table for interval boundaries for optimal design with calibrated
-#'  item and probability.}
+#'  \item{ht}{Refined table of interval boundaries for optimal design with
+#'            calibrated items and their corresponding probabilities}
 #'  \item{mooiter}{monitoring iterations; information about each iteration to produce
 #'                  convergence plots.}
 #'  \item{time}{running time of algorithm in minutes.}
@@ -83,7 +83,7 @@
 #' @export optical
 #'
 #' @examples
-#' # 2PL-models with discriminat and difficulty parameters
+#' # 2PL-models with difficulty and common discrimination parameters
 #' ip <- cbind(c(1.6, 1.6),c(-1, 1))
 #'
 #' yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
@@ -94,7 +94,7 @@
 #'                sss=0.001, falpha=1.08, ig=3, ex=0)
 #'
 #'
-#' # Table of optimal design with interval boundaries, items and probabilities
+#' # Table of interval boundaries for optimal design with items and probabilities
 #' yyy$ht
 #'
 #' @examples
@@ -108,7 +108,7 @@
 #'                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
 #'                sss=0.001, falpha=1.08, ig=3, ex=0)
 #'
-#' # Table of optimal design with interval boundaries, items and probabilities
+#' # Table of interval boundaries for optimal design with items and probabilities
 #' yyy$ht
 
 

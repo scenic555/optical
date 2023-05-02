@@ -55,8 +55,9 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(optical)
-# 1PL-models with common discrimination parameter
-ip <- cbind(c(1.6, NA), c(-1, 1))
+
+# 2PL-models with difficulty and common discrimination parameters
+ip <- cbind(c(1.6, 1.6),  c(-1, 1))
 
 yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
                imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45),
@@ -65,9 +66,17 @@ yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
                sss=0.001, falpha=1.08, ig=3, ex=0)
 #> [1;31m---> Outer iteration = 1 [0m
-#> ++++++++++++++++++++
+#> ++++++++++++++++++
 #> [1;31m---> Adapt grid; outer iteration = 2 [0m
 #> ++
+
+# Table of interval boundaries for optimal design with items and probabilities
+yyy$ht
+#>      Lower    Upper Item Probability
+#> 1     -Inf -0.73445    1   0.2313373
+#> 2 -0.73445  0.00005    2   0.2686827
+#> 3  0.00005  0.73445    1   0.2686428
+#> 4  0.73445      Inf    2   0.2313373
 
 drawdesign(yyy=yyy, ip=ip, ylowl=-1000, refline=0.002, layout=1)
 ```

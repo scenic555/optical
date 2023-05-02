@@ -107,8 +107,9 @@
 <p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/scenic555/optical.git" class="external-link">optical</a></span><span class="op">)</span></span>
-<span><span class="co"># 1PL-models with common discrimination parameter</span></span>
-<span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="cn">NA</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 2PL-models with difficulty and common discrimination parameters</span></span>
+<span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="fl">1.6</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/optical.html">optical</a></span><span class="op">(</span><span class="va">ip</span>, oc<span class="op">=</span><span class="st">"D"</span>, uncert<span class="op">=</span><span class="cn">FALSE</span>, <span class="va">ipop</span>,</span>
 <span>               imf<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.005</span>, <span class="fl">0.01</span>, <span class="fl">0.02</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.45</span><span class="op">)</span>,</span>
@@ -117,9 +118,17 @@
 <span>               nsp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.001</span>, <span class="fl">0.0001</span>, <span class="fl">0.0001</span>, <span class="fl">0.00001</span>, <span class="fl">0.00001</span>, <span class="fl">0.00001</span><span class="op">)</span>,</span>
 <span>               sss<span class="op">=</span><span class="fl">0.001</span>, falpha<span class="op">=</span><span class="fl">1.08</span>, ig<span class="op">=</span><span class="fl">3</span>, ex<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1;31m---&gt; Outer iteration = 1 [0m</span></span>
-<span><span class="co">#&gt; ++++++++++++++++++++</span></span>
+<span><span class="co">#&gt; ++++++++++++++++++</span></span>
 <span><span class="co">#&gt; [1;31m---&gt; Adapt grid; outer iteration = 2 [0m</span></span>
 <span><span class="co">#&gt; ++</span></span>
+<span></span>
+<span><span class="co"># Table of interval boundaries for optimal design with items and probabilities</span></span>
+<span><span class="va">yyy</span><span class="op">$</span><span class="va">ht</span></span>
+<span><span class="co">#&gt;      Lower    Upper Item Probability</span></span>
+<span><span class="co">#&gt; 1     -Inf -0.73445    1   0.2313373</span></span>
+<span><span class="co">#&gt; 2 -0.73445  0.00005    2   0.2686827</span></span>
+<span><span class="co">#&gt; 3  0.00005  0.73445    1   0.2686428</span></span>
+<span><span class="co">#&gt; 4  0.73445      Inf    2   0.2313373</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/drawdesign.html">drawdesign</a></span><span class="op">(</span>yyy<span class="op">=</span><span class="va">yyy</span>, ip<span class="op">=</span><span class="va">ip</span>, ylowl<span class="op">=</span><span class="op">-</span><span class="fl">1000</span>, refline<span class="op">=</span><span class="fl">0.002</span>, layout<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-example-1.png" width="100%"></p>
