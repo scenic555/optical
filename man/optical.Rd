@@ -67,6 +67,10 @@ if ex=0, no consolidation will be done.}
 
 \item{integ}{if true (default), integrate() is used for computation of partial
 information matrices; if false, Riemann rule is used.}
+
+\item{show_progress}{FALSE (default), This ensures that the + symbols are
+printed on a line for each Iteration otherwise some output of the
+function is printed.}
 }
 \value{
 Result of this function is a list with following instances:
