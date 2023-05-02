@@ -175,6 +175,10 @@ has converged, otherwise not).</p></dd>
 <dt>h1</dt>
 <dd><p>interval boundaries for optimal solution.</p></dd>
 
+<dt>ht</dt>
+<dd><p>Refine table for interval boundaries for optimal design with calibrated
+item and probability.</p></dd>
+
 <dt>mooiter</dt>
 <dd><p>monitoring iterations; information about each iteration to produce
 convergence plots.</p></dd>
@@ -224,12 +228,14 @@ Frank Miller (<a href="mailto:frank.miller@liu.se">frank.miller@liu.se</a>)</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Adapt grid; outer iteration = 2 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ++</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">h1</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]      [,2] [,3] [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bound  -0.73445 0.2313373    1    2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bound   0.00005 0.2686827    2    1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bound   0.73445 0.2686428    1    2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bound 100.00000 0.2313373    2    2</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Table of optimal design with interval boundaries, items and probabilities</span></span></span>
+<span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">ht</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Lower    Upper Item Probability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     -Inf -0.73445    1   0.2313373</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.73445  0.00005    2   0.2686827</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.00005  0.73445    1   0.2686428</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.73445      Inf    2   0.2313373</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 1PL-models with common discrimination parameter</span></span></span>
 <span class="r-in"><span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="cn">NA</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -245,12 +251,13 @@ Frank Miller (<a href="mailto:frank.miller@liu.se">frank.miller@liu.se</a>)</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Adapt grid; outer iteration = 2 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ++</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">h1</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]      [,2] [,3] [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bound  -0.44545 0.3279973    1    2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bound  -0.00005 0.1719828    2    1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bound   0.44585 0.1721671    1    2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> bound 100.00000 0.3278528    2    2</span>
+<span class="r-in"><span><span class="co"># Table of optimal design with interval boundaries, items and probabilities</span></span></span>
+<span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">ht</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Lower    Upper Item Probability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     -Inf -0.44545    1   0.3279973</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.44545 -0.00005    2   0.1719828</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.00005  0.44585    1   0.1721671</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.44585      Inf    2   0.3278528</span>
 </code></pre></div>
     </div>
   </div>

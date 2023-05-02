@@ -80,6 +80,8 @@ Result of this function is a list with following instances:
 \item{viomax}{largest violation of eq.th. from final solution (if < eps, alg.
 has converged, otherwise not).}
 \item{h1}{interval boundaries for optimal solution.}
+\item{ht}{Refine table for interval boundaries for optimal design with calibrated
+item and probability.}
 \item{mooiter}{monitoring iterations; information about each iteration to produce
 convergence plots.}
 \item{time}{running time of algorithm in minutes.}
@@ -101,7 +103,9 @@ yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
                sss=0.001, falpha=1.08, ig=3, ex=0)
 
-yyy$h1
+
+# Table of optimal design with interval boundaries, items and probabilities
+yyy$ht
 
 # 1PL-models with common discrimination parameter
 ip <- cbind(c(1.6, NA), c(-1, 1))
@@ -113,7 +117,8 @@ yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
                sss=0.001, falpha=1.08, ig=3, ex=0)
 
-yyy$h1
+# Table of optimal design with interval boundaries, items and probabilities
+yyy$ht
 }
 \references{
 Ul Hassan and Miller (2021). An exchange algorithm for optimal calibration

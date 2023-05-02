@@ -56,6 +56,8 @@
 #'  \item{viomax}{largest violation of eq.th. from final solution (if < eps, alg.
 #'                  has converged, otherwise not).}
 #'  \item{h1}{interval boundaries for optimal solution.}
+#'  \item{ht}{Refine table for interval boundaries for optimal design with calibrated
+#'  item and probability.}
 #'  \item{mooiter}{monitoring iterations; information about each iteration to produce
 #'                  convergence plots.}
 #'  \item{time}{running time of algorithm in minutes.}
@@ -91,7 +93,9 @@
 #'                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
 #'                sss=0.001, falpha=1.08, ig=3, ex=0)
 #'
-#' yyy$h1
+#'
+#' # Table of optimal design with interval boundaries, items and probabilities
+#' yyy$ht
 #'
 #' @examples
 #' # 1PL-models with common discrimination parameter
@@ -104,7 +108,8 @@
 #'                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
 #'                sss=0.001, falpha=1.08, ig=3, ex=0)
 #'
-#' yyy$h1
+#' # Table of optimal design with interval boundaries, items and probabilities
+#' yyy$ht
 
 
 
@@ -160,7 +165,18 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
                    round(yy$viomax,5), " instead of ", eps[oiterc], ".")) }
   # Time in minutes
   runtime <- (proc.time()-starttime)/60
-  list(dd=yy$dd, xi=yy$xi, t=t, viomax=yy$viomax, h1=h1, mooiter=mooiter,
+
+  # Refine table for optimal design
+  r<-nrow(h1)
+  bon<-c(-Inf,h1[(1:(r-1)),1],Inf)
+  Lower<-bon[1:(length(bon)-1)]
+  Upper<-bon[2:length(bon)]
+  Item<-h1[,3]
+  Probability<-h1[,2]
+  g<-cbind(Lower,Upper,Item,Probability)
+  rownames(g)<- 1:length(Lower)
+
+  list(dd=yy$dd, xi=yy$xi, t=t, viomax=yy$viomax, h1=h1,ht=g, mooiter=mooiter,
        time=runtime, oc=oc, L=L)
 }
 
