@@ -78,6 +78,8 @@ yyy$ht
 #> 3  0.00005  0.73445    1   0.2686428
 #> 4  0.73445      Inf    2   0.2313373
 
+
+# Graph for (optimal) design
 drawdesign(yyy=yyy, ip=ip, ylowl=-1000, refline=0.002, layout=1)
 ```
 

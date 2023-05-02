@@ -28,8 +28,8 @@
 #' @export convergenceplot
 #'
 #' @examples
-#' # 1PL-models with common discrimination parameter
-#' ip <- cbind(c(1.6, NA), c(-1, 1))
+#' # 2PL-models with difficulty and common discrimination parameters
+#' ip <- cbind(c(1.6, 1.6),c(-1, 1))
 #'
 #' yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
 #'                imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45),

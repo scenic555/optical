@@ -73,6 +73,8 @@ yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
 # Table of interval boundaries for optimal design with items and probabilities
 yyy$ht
 
+
+# Graph for (optimal) design
 drawdesign(yyy=yyy, ip=ip, ylowl=-1000, refline=0.002, layout=1)
 ```
 

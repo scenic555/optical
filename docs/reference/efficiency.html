@@ -114,8 +114,8 @@ information matrices; if false, Riemann rule is used.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># 1PL-models with common discrimination parameter</span></span></span>
-<span class="r-in"><span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="cn">NA</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># 2PL-models with difficulty and common discrimination parameters</span></span></span>
+<span class="r-in"><span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="fl">1.6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu"><a href="optical.html">optical</a></span><span class="op">(</span><span class="va">ip</span>, oc<span class="op">=</span><span class="st">"D"</span>, uncert<span class="op">=</span><span class="cn">FALSE</span>, <span class="va">ipop</span>,</span></span>
 <span class="r-in"><span>               imf<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.005</span>, <span class="fl">0.01</span>, <span class="fl">0.02</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.45</span><span class="op">)</span>,</span></span>
@@ -123,21 +123,21 @@ information matrices; if false, Riemann rule is used.</p></dd>
 <span class="r-in"><span>               nsp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.001</span>, <span class="fl">0.0001</span>, <span class="fl">0.0001</span>, <span class="fl">0.00001</span>, <span class="fl">0.00001</span>, <span class="fl">0.00001</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>               sss<span class="op">=</span><span class="fl">0.001</span>, falpha<span class="op">=</span><span class="fl">1.08</span>, ig<span class="op">=</span><span class="fl">3</span>, ex<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Outer iteration = 1 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000; font-weight: bold;">---&gt; Adapt grid; outer iteration = 2 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ++</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Efficiency of D-optimal design compared to random design</span></span></span>
 <span class="r-in"><span><span class="fu">efficiency</span><span class="op">(</span><span class="va">yyy</span>, <span class="va">ip</span>, oc<span class="op">=</span><span class="st">"D"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.237897</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.23116</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Efficiency of I-optimal design compared to random design</span></span></span>
 <span class="r-in"><span><span class="fu">efficiency</span><span class="op">(</span><span class="va">yyy</span>, <span class="va">ip</span>, oc<span class="op">=</span><span class="st">"I"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.086161</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.1181</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Efficiency of A-optimal design compared to random design</span></span></span>
 <span class="r-in"><span><span class="fu">efficiency</span><span class="op">(</span><span class="va">yyy</span>, <span class="va">ip</span>, oc<span class="op">=</span><span class="st">"A"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.086161</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.369236</span>
 </code></pre></div>
     </div>
   </div>
