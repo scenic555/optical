@@ -30,7 +30,12 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-`optical` package provides function that are used for Optimal Item Calibaration in computerized achievement tests
+An R package for Optimal Item Calibaration in computerized achievement tests.
+
+With `optical` package, a set of items that require calibration can be optimally allocated to a group of examinees. The optimization process utilizes the restricted optimal design method, which has been described in detail by Ul Hassan and Miller in their  works published in 2019 and 2021. To use the 
+ method, preliminary item characteristics must be provided as input. These characteristics can either be expert guesses or based on previous calibration with a small number of examinees. The item characteristics should be described in the form of parameters for an Item Response Theory (IRT) model. These models
+ can include the Rasch model, the 2-parameter logistic model, the 3-parameter logistic model, or a mixture of these models. The output consists of a set of rules for each item that determine which examinees should be assigned to each item. The efficiency or gain achieved through the optimal design is quantified 
+ by comparing it to a random allocation. This comparison allows for an assessment of how much improvement or advantage is gained by using the optimal design approach. 
 
 ## Installation
 
