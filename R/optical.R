@@ -70,12 +70,12 @@
 #' Frank Miller (\email{frank.miller@liu.se})
 #'
 #' @references
-#' Ul Hassan and Miller (2021). An exchange algorithm for optimal calibration
-#' of items in computerized achievement tests.\emph{Computational Statistics and
-#' Data Analysis, 157}: 107177. \doi{https://doi.org/10.1016/j.csda.2021.107177}
+#' Ul Hassan and Miller (2021). [An exchange algorithm for optimal calibration of items in computerized achievement tests](https://doi.org/10.1016/j.csda.2021.107177).\emph{Computational Statistics and
+#' Data Analysis, 157}: 107177.
 #'
-#' Bjermo, Fackle-Fornius, and Miller (2021). Optimizing Calibration Designs with
-#' Uncertaintyin Abilities. Manuscript. \href{https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Asu%3Adiva-198065}{urn:nbn:se:su:diva-198065}
+#' Ul Hassan and Miller (2019). [Optimal item calibration for computerized achievement tests](https://link.springer.com/article/10.1007/s11336-019-09673-6). Psychometrika, 84, 1101-1128.
+#'
+#' Bjermo, Fackle-Fornius, and Miller (2021). [Optimizing Calibration Designs with  Uncertaintyin Abilities](https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Asu%3Adiva-198065). Manuscript.
 #'
 #' @seealso \code{\link{drawdesign}}, \code{\link{convergenceplot}},
 #' \code{\link{efficiency}}
