@@ -5,7 +5,7 @@ Version: 1.7.1
 Date: 2023-04-08
 Depends: R (>= 4.1.0)
 Description: Implements the restricted optimal design method for items calibration  
-as described in detail by Ul Hassan and Miller in their works published in 2019 and 2021.
+ as described in detail by Ul Hassan and Miller in their works published in 2019 and 2021.
 Authors@R: c(person("Mahmood", "Ul Hassan", role = c("aut", "cre"),
            email ="scenic555@gmail.com",
            comment = c(ORCID = "0000-0003-2889-0263")),

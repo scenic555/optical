@@ -24,7 +24,7 @@ status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.or
 An R package for Optimal Item Calibaration in computerized achievement
 tests.
 
-With the `optical` package, a set of items that require calibration can be
+With `optical` package, a set of items that require calibration can be
 optimally allocated to a group of examinees. The optimization process
 utilizes the restricted optimal design method, which has been described
 in detail by Ul Hassan and Miller in their works published in
