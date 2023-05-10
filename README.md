@@ -84,9 +84,9 @@ yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
                nnn=c(0, 50, 50, 200, 200, 200),
                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
                sss=0.001, falpha=1.08, ig=3, ex=0)
-#> [1;31m---> Outer iteration = 1 [0m
+#> -----> Outer iteration = 1 
 #> ++++++++++++++++++
-#> [1;31m---> Adapt grid; outer iteration = 2 [0m
+#> -----> Adapt grid; outer iteration = 2 
 #> ++
 
 # Table of interval boundaries for optimal design with items and probabilities

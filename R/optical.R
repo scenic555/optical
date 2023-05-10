@@ -134,7 +134,8 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
 
   oitermax  <- min(length(maxiter), length(eps), length(nnn), length(nsp))     # total number of outer iterations
   oiterc    <- 1                                                               # counter for outer iterations
-  cat("\033[1;31m---> Outer iteration =", oiterc, "\033[0m\n")
+  #cat("\033[1;31m---> Outer iteration =", oiterc, "\033[0m\n")
+  cat("-----> Outer iteration =", oiterc, "\n")
   # Run optimization (maxiter = maximum number of iterations, eps = stopping criterion for maximum violation of equivalence criterion)
   yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf,
                    maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss,
@@ -147,7 +148,8 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
     oiterc <- oiterc+1
     if (yy$viomax>eps[oiterc]) {
       # Adapt grid automatically
-      cat("\033[1;31m---> Adapt grid; outer iteration =", oiterc, "\033[0m\n")
+      #cat("\033[1;31m---> Adapt grid; outer iteration =", oiterc, "\033[0m\n")
+      cat("-----> Adapt grid; outer iteration =", oiterc,"\n")
       t   <- adaptgrid(t, yy, nnn=nnn[oiterc], nsp=nsp[oiterc], ig=ig)
       xis <- boundaries2design(t, h1)
       # Run optimization
