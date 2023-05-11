@@ -75,7 +75,7 @@
 #'
 #' Ul Hassan and Miller (2019). [Optimal item calibration for computerized achievement tests](https://link.springer.com/article/10.1007/s11336-019-09673-6). Psychometrika, 84, 1101-1128.
 #'
-#' Bjermo, Fackle-Fornius, and Miller (2021). [Optimizing Calibration Designs with  Uncertaintyin Abilities](https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Asu%3Adiva-198065). Manuscript.
+#' Bjermo, Fackle-Fornius, and Miller (2021). [Optimizing Calibration Designs with Uncertainty in Abilities](https://urn.kb.se/resolve?urn=urn%3Anbn%3Ase%3Asu%3Adiva-198065). Manuscript.
 #'
 #' @seealso \code{\link{drawdesign}}, \code{\link{convergenceplot}},
 #' \code{\link{efficiency}}
@@ -83,7 +83,7 @@
 #' @export optical
 #'
 #' @examples
-#' # 2PL-models with difficulty and common discrimination parameters
+#' # 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively
 #' ip <- cbind(c(1.6, 1.6),c(-1, 1))
 #'
 #' yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
@@ -94,11 +94,14 @@
 #'                sss=0.001, falpha=1.08, ig=3, ex=0)
 #'
 #'
-#' # Table of interval boundaries for optimal design with items and probabilities
+#' # Table of interval boundaries for D-optimal design with items and 
+#' # probabilities (expected proportion of examinees in this interval)
 #' yyy$ht
 #'
 #' @examples
-#' # 1PL-models with common discrimination parameter
+#' # 1PL-models with common discrimination parameter for two items (model assumption is that both have same discrimination); 
+#' # parameters (a, b)=(1.6, -1) and (1.6, 1), respectively; 
+#' # NA for discrimination means that item has same parameter as preceeding item
 #' ip <- cbind(c(1.6, NA), c(-1, 1))
 #'
 #' yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
@@ -108,7 +111,8 @@
 #'                nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
 #'                sss=0.001, falpha=1.08, ig=3, ex=0)
 #'
-#' # Table of interval boundaries for optimal design with items and probabilities
+#' # Table of interval boundaries for D-optimal design with items and 
+#' # probabilities (expected proportion of examinees in this interval)
 #' yyy$ht
 
 
