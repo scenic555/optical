@@ -9,7 +9,7 @@
 #'             determines number of items; number of column 2 (2PL) or
 #'             3 (3PL or mixed 2/3-PL with NA for 2PL-items in third column).
 #' @param ablim ability limits; plots will be made in the range \[-ablim, ablim]
-#' @param ylowl  y low level (minimum value of directional derivative)
+#' @param ylowl  y low level (minimum value of directional derivative shown in the plot)
 #' @param refline  reference line correspond to desired minimum violation of equivalence theorem
 #' @param textout  If textout=TRUE (default), the item parameters will be printed if number of items $<5$
 #'                 and the efficiency vs. the random design; if textout=FALSE, no such text is printed
@@ -32,7 +32,7 @@
 #'            polygon text
 #'
 #' @examples
-#' # 2PL-models with difficulty and common discrimination parameters
+#' # 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively
 #' ip <- cbind(c(1.6, 1.6),c(-1, 1))
 #'
 #' yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
