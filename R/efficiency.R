@@ -15,9 +15,9 @@
 #'
 #'
 #' @param yyy   a \code{\link{optical}} object; the output of a call [optical()]
-#' @param ip matrix with item parameters for all items (number of rows determines number of items;
-#' number of columns is 2 (for 2PL; or 1PL with common a-parameter when NA in first column from second item)
-#' or 3 (for 3PL; or mixed 2/3-PL with NA for 2PL-items in third column)
+#' @param ip  matrix with item parameters for all items (number of rows determines number of items;
+#'            number of columns is 2 (for 2PL; or 1PL with common a-parameter when NA in first column from second item)
+#'            or 3 (for 3PL; or mixed 2/3-PL with NA for 2PL-items in third column)
 #' @param uncert if false (default), abilities are assumed to be known; if true,
 #'  handling of uncertainties of Bjermo et al. (2021) is used.
 #' @param ipop matrix with item parameters for operational items
