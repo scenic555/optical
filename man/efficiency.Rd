@@ -46,7 +46,7 @@ This function computes the efficiency of the D, I, and A optimal designs
 compared to the random design.
 }
 \examples{
-# 2PL-models with difficulty and common discrimination parameters
+# 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively
 ip <- cbind(c(1.6, 1.6),c(-1, 1))
 
 yyy <- optical(ip, oc="D", uncert=FALSE, ipop,

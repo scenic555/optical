@@ -25,7 +25,7 @@ determines number of items; number of column 2 (2PL) or
 
 \item{ablim}{ability limits; plots will be made in the range [-ablim, ablim]}
 
-\item{ylowl}{y low level (minimum value of directional derivative)}
+\item{ylowl}{y low level (minimum value of directional derivative shown in the plot)}
 
 \item{refline}{reference line correspond to desired minimum violation of equivalence theorem}
 
@@ -52,7 +52,7 @@ first incl. efficiency vs. random design; then line with item having minimal
 directional derivative
 }
 \examples{
-# 2PL-models with difficulty and common discrimination parameters
+# 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively
 ip <- cbind(c(1.6, 1.6),c(-1, 1))
 
 yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
