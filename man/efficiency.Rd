@@ -49,11 +49,7 @@ compared to the random design.
 # 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively
 ip <- cbind(c(1.6, 1.6),c(-1, 1))
 
-yyy <- optical(ip, oc="D", uncert=FALSE, ipop,
-               imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45),
-               nnn=c(0, 50, 50, 200, 200, 200),
-               nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
-               sss=0.001, falpha=1.08, ig=3, ex=0)
+yyy <- optical(ip)
 
 # Efficiency of D-optimal design compared to random design
 efficiency(yyy, ip, oc="D")
