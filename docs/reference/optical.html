@@ -251,6 +251,34 @@ Frank Miller (<a href="mailto:frank.miller@liu.se">frank.miller@liu.se</a>)</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.44545 -0.00005    2   0.1719828</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.00005  0.44585    1   0.1721671</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.44585      Inf    2   0.3278528</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># 3PL-models for three items; parameters (a, b, c)=(1, 2, 2.5), (-1.5, 0.5, 2) and (0.2, 0.1, 0.05), respectively</span></span></span>
+<span class="r-in"><span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2.5</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.5</span>, <span class="fl">0.5</span>, <span class="fl">2</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu">optical</span><span class="op">(</span><span class="va">ip</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Outer iteration = 1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++++++++++++++++++++++++++++++++</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++++++++++++++++++++++++++++++++</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++++++++++++++++++++</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Adapt grid; outer iteration = 2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Table of interval boundaries for D-optimal design with items and</span></span></span>
+<span class="r-in"><span><span class="co"># probabilities (expected proportion of examinees in this interval)</span></span></span>
+<span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">ht</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Lower    Upper Item  Probability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      -Inf -1.90655    1 2.828944e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -1.90655 -1.20405    2 8.599568e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -1.20405 -0.71505    1 1.230039e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  -0.71505 -0.22465    3 1.738367e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  -0.22465  0.26750    2 1.943321e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   0.26750  0.75155    1 1.683812e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   0.75155  0.92745    2 4.931439e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   0.92745  1.27505    3 7.570070e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   1.27505  1.62495    2 4.905917e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  1.62495  4.58500    3 5.208434e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  4.58500      Inf    1 2.269932e-06</span>
 </code></pre></div>
     </div>
   </div>

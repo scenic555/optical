@@ -66,7 +66,7 @@ innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf,
             " Max.Violation=", round(viomax, 7), "Step size=", round(imf[mm], 7),"\n")
     } else {
 
-      if (iterc%%75 == 0) {
+      if (iterc%%50 == 0) {
         cat("+\n")  # Print "+" on the second line after 25 iterations
       }
       else {
