@@ -65,7 +65,14 @@ innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf,
     cat(iterc, " criterion.val.=", round(critval[mm], 5),
             " Max.Violation=", round(viomax, 7), "Step size=", round(imf[mm], 7),"\n")
     } else {
-      cat("+")
+
+      if (iterc%%75 == 0) {
+        cat("+\n")  # Print "+" on the second line after 25 iterations
+      }
+      else {
+        cat("+")
+      }
+
     }
 
     if (sdr==TRUE) {

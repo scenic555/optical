@@ -113,6 +113,16 @@ yyy <- optical(ip)
 # Table of interval boundaries for D-optimal design with items and
 # probabilities (expected proportion of examinees in this interval)
 yyy$ht
+
+
+# 3PL-models for three items; parameters (a, b, c)=(1, 2, 2.5), (-1.5, 0.5, 2) and (0.2, 0.1, 0.05), respectively
+ip <- cbind(c(1, 2, 2.5),c(-1.5, 0.5, 2),c(0.2, 0.1, 0.05))
+
+yyy <- optical(ip)
+
+# Table of interval boundaries for D-optimal design with items and
+# probabilities (expected proportion of examinees in this interval)
+yyy$ht
 }
 \references{
 Ul Hassan and Miller (2021). \href{https://doi.org/10.1016/j.csda.2021.107177}{An exchange algorithm for optimal calibration of items in computerized achievement tests}.\emph{Computational Statistics and
