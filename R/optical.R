@@ -5,7 +5,7 @@
 #' model, or 2PL with common discrimination for all items (Rasch-type).
 #'
 #' @param ip matrix with item parameters for all items (number of rows determines
-#' number of items number of column 2 (2PL or Rasch-type with NA from second item
+#' number of items; number of column is 2 (2PL or Rasch-type with NA from second item
 #' in first column) or 3 (3PL or mixed 2/3-PL with NA for
 #' 2PL-items in third column).
 
