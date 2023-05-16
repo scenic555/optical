@@ -4,7 +4,8 @@ Title: Optimal Item Calibration
 Version: 1.7.1
 Date: 2023-04-08
 Depends: R (>= 4.1.0)
-Description: With this `optical` package, a set of items that require calibration can be
+Description: An R package for optimal item calibaration in computerized achievement tests.
+ With this `optical` package, a set of items that require calibration can be
  optimally allocated to a group of examinees. The optimization process
  utilizes the restricted optimal design method, which has been described
  in detail by Ul Hassan and Miller in their works published in
