@@ -22,7 +22,8 @@ Description: An R package for optimal item calibaration in computerized achievem
  efficiency or gain achieved through the optimal design is quantified by
  comparing it to a random allocation. This comparison allows for an
  assessment of how much improvement or advantage is gained by using the
- optimal design approach.
+ optimal design approach. This work was supported by the Swedish Research Council
+ (Vetenskapsrådet) Grant 2019-02706.
 Authors@R: c(person("Mahmood", "Ul Hassan", role = c("aut", "cre"),
            email ="scenic555@gmail.com",
            comment = c(ORCID = "0000-0003-2889-0263")),
