@@ -103,7 +103,8 @@ yyy <- optical(ip)
 # probabilities (expected proportion of examinees in this interval)
 yyy$ht
 
-# 1PL-models with common discrimination parameter for two items (model assumption is that both have same discrimination);
+# 1PL-models with common discrimination parameter for two items
+# (model assumption is that both have same discrimination);
 # parameters (a, b)=(1.6, -1) and (1.6, 1), respectively;
 # NA for discrimination means that item has same parameter as preceeding item
 ip <- cbind(c(1.6, NA), c(-1, 1))
@@ -115,7 +116,8 @@ yyy <- optical(ip)
 yyy$ht
 
 
-# 3PL-models for three items; parameters (a, b, c)=(1, 2, 2.5), (-1.5, 0.5, 2) and (0.2, 0.1, 0.05), respectively
+# 3PL-models for three items; parameters (a, b, c)=(1, 2, 2.5),
+# (-1.5, 0.5, 2) and (0.2, 0.1, 0.05), respectively.
 ip <- cbind(c(1, 2, 2.5),c(-1.5, 0.5, 2),c(0.2, 0.1, 0.05))
 
 yyy <- optical(ip)
