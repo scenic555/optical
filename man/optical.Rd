@@ -127,7 +127,7 @@ yyy <- optical(ip)
 yyy$ht
 }
 \references{
-Ul Hassan and Miller (2021). \href{https://doi.org/10.1016/j.csda.2021.107177}{An exchange algorithm for optimal calibration of items in computerized achievement tests}.\emph{Computational Statistics and
+Ul Hassan and Miller (2021). \href{https://www.sciencedirect.com/science/article/pii/S0167947321000116?via\%3Dihub}{An exchange algorithm for optimal calibration of items in computerized achievement tests}.\emph{Computational Statistics and
 Data Analysis, 157}: 107177.
 
 Ul Hassan and Miller (2019). \href{https://link.springer.com/article/10.1007/s11336-019-09673-6}{Optimal item calibration for computerized achievement tests}. Psychometrika, 84, 1101-1128.

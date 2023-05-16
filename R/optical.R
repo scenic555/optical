@@ -70,7 +70,7 @@
 #' Frank Miller (\email{frank.miller@liu.se})
 #'
 #' @references
-#' Ul Hassan and Miller (2021). [An exchange algorithm for optimal calibration of items in computerized achievement tests](https://doi.org/10.1016/j.csda.2021.107177).\emph{Computational Statistics and
+#' Ul Hassan and Miller (2021). [An exchange algorithm for optimal calibration of items in computerized achievement tests](https://www.sciencedirect.com/science/article/pii/S0167947321000116?via%3Dihub).\emph{Computational Statistics and
 #' Data Analysis, 157}: 107177.
 #'
 #' Ul Hassan and Miller (2019). [Optimal item calibration for computerized achievement tests](https://link.springer.com/article/10.1007/s11336-019-09673-6). Psychometrika, 84, 1101-1128.
