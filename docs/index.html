@@ -99,7 +99,7 @@
 
 <!-- badges: end -->
 <p>An R package for optimal item calibaration in computerized achievement tests.</p>
-<p>The restricted optimal design method is implemented to optimally allocate a set of items that require calibration to a group of examinees. The optimization process is based on the method described in detail by Ul Hassan and Miller in their works published in <a href="https://link.springer.com/article/10.1007/s11336-019-09673-6" class="external-link"><strong>2019</strong></a> and <a href="https://doi.org/10.1016/j.csda.2021.107177" class="external-link"><strong>2021</strong></a>. To use the method, preliminary item characteristics must be provided as input. These characteristics can either be expert guesses or based on previous calibration with a small number of examinees. The item characteristics should be described in the form of parameters for an Item Response Theory (IRT) model. These models can include the Rasch model, the 2-parameter logistic model, the 3-parameter logistic model, or a mixture of these models. The output consists of a set of rules for each item that determine which examinees should be assigned to each item. The efficiency or gain achieved through the optimal design is quantified by comparing it to a random allocation. This comparison allows for an assessment of how much improvement or advantage is gained by using the optimal design approach. This work was supported by the Swedish Research Council (Vetenskapsrådet) Grant 2019-02706.</p>
+<p>The restricted optimal design method is implemented to optimally allocate a set of items that require calibration to a group of examinees. The optimization process is based on the method described in detail by Ul Hassan and Miller in their works published in <a href="https://link.springer.com/article/10.1007/s11336-019-09673-6" class="external-link"><strong>2019</strong></a> and <a href="https://doi.org/10.1016/j.csda.2021.107177" class="external-link"><strong>2021</strong></a>. To use the method, preliminary item characteristics must be provided as input. These characteristics can either be expert guesses or based on previous calibration with a small number of examinees. The item characteristics should be described in the form of parameters for an Item Response Theory (IRT) model. These models can include the Rasch model, the 2-parameter logistic model, the 3-parameter logistic model, or a mixture of these models. The output consists of a set of rules for each item that determine which examinees should be assigned to each item. The efficiency or gain achieved through the optimal design is quantified by comparing it to a random allocation. This comparison allows for an assessment of how much improvement or advantage is gained by using the optimal design approach. This work was supported by the Swedish Research Council (Vetenskapsr?det) Grant 2019-02706.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -126,16 +126,17 @@
 <span></span>
 <span><span class="co"># 2PL-models with difficulty and common discrimination parameters</span></span>
 <span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="fl">1.6</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
 <span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/optical.html">optical</a></span><span class="op">(</span><span class="va">ip</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Table of interval boundaries for optimal design with items and probabilities</span></span>
-<span><span class="va">yyy</span><span class="op">$</span><span class="va">ht</span></span>
+<span><span class="va">yyy</span></span>
+<span><span class="co">#&gt; =================================================================== </span></span>
+<span><span class="co">#&gt;  Table of interval boundaries for D-optimal design with items and</span></span>
+<span><span class="co">#&gt;  probabilities (expected proportion of examinees in this interval) </span></span>
+<span><span class="co">#&gt; =================================================================== </span></span>
 <span><span class="co">#&gt;      Lower    Upper Item Probability</span></span>
-<span><span class="co">#&gt; 1     -Inf -0.73445    1   0.2313373</span></span>
-<span><span class="co">#&gt; 2 -0.73445  0.00005    2   0.2686827</span></span>
-<span><span class="co">#&gt; 3  0.00005  0.73445    1   0.2686428</span></span>
-<span><span class="co">#&gt; 4  0.73445      Inf    2   0.2313373</span></span>
+<span><span class="co">#&gt; 1     -Inf -0.73445    1      0.2313</span></span>
+<span><span class="co">#&gt; 2 -0.73445  0.00005    2      0.2687</span></span>
+<span><span class="co">#&gt; 3  0.00005  0.73445    1      0.2686</span></span>
+<span><span class="co">#&gt; 4  0.73445      Inf    2      0.2313</span></span>
 <span></span>
 <span></span>
 <span><span class="co"># Graph for (optimal) design</span></span>
@@ -151,7 +152,7 @@
 <div class="section level1">
 <h1 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>
 </h1>
-<p>This work was supported by the Swedish Research Council (VetenskapsrÃ¥det) Grant 2019-02706.</p>
+<p>This work was supported by the Swedish Research Council (Vetenskapsrådet) Grant 2019-02706.</p>
 </div>
 <div class="section level1">
 <h1 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
@@ -207,6 +208,7 @@
 <li><a href="https://github.com/scenic555/optical/actions/workflows/pages/pages-build-deployment" class="external-link"><img src="https://github.com/scenic555/optical/actions/workflows/pages/pages-build-deployment/badge.svg" alt="pages-build-deployment"></a></li>
 <li><a href="https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml" class="external-link"><img src="https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml/badge.svg" alt="test-coverage"></a></li>
 <li><a href="https://CRAN.R-project.org/package=optical" class="external-link"><img src="https://www.r-pkg.org/badges/version/optical" alt="CRAN status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=optical" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/optical?color=brightgreen"></a></li>
 </ul>
 </div>
 

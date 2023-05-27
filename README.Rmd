@@ -31,21 +31,38 @@ version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optic
 [![test-coverage](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.org/package=optical)
+[![](http://cranlogs.r-pkg.org/badges/optical?color=brightgreen)](https://CRAN.R-project.org/package=optical)
 
 <!-- badges: end -->
 
 An R package for optimal item calibaration in computerized achievement
 tests.
 
-The restricted optimal design method is implemented to optimally allocate a set of items that require calibration to a group of examinees. The optimization process is based on the method described in detail by Ul Hassan and Miller in their works published in
+The restricted optimal design method is implemented to optimally
+allocate a set of items that require calibration to a group of
+examinees. The optimization process is based on the method described in
+detail by Ul Hassan and Miller in their works published in
 [**2019**](https://link.springer.com/article/10.1007/s11336-019-09673-6)
-and [**2021**](https://doi.org/10.1016/j.csda.2021.107177). To use the method, preliminary item characteristics must be provided as input. These characteristics can either be expert guesses or based on previous calibration with a small number of examinees. The item characteristics should be described in the form of parameters for an Item Response Theory (IRT) model. These models can include the Rasch model, the 2-parameter logistic model, the 3-parameter logistic model, or a mixture of these models. The output consists of a set of rules for each item that determine which examinees should be assigned to each item. The efficiency or gain achieved through the optimal design is quantified by comparing it to a random allocation. This comparison allows for an assessment of how much improvement or advantage is gained by using the optimal design approach. This work was supported by the Swedish Research Council (Vetenskapsr�det) Grant 2019-02706.
+and [**2021**](https://doi.org/10.1016/j.csda.2021.107177). To use the
+method, preliminary item characteristics must be provided as input.
+These characteristics can either be expert guesses or based on previous
+calibration with a small number of examinees. The item characteristics
+should be described in the form of parameters for an Item Response
+Theory (IRT) model. These models can include the Rasch model, the
+2-parameter logistic model, the 3-parameter logistic model, or a mixture
+of these models. The output consists of a set of rules for each item
+that determine which examinees should be assigned to each item. The
+efficiency or gain achieved through the optimal design is quantified by
+comparing it to a random allocation. This comparison allows for an
+assessment of how much improvement or advantage is gained by using the
+optimal design approach. This work was supported by the Swedish Research
+Council (Vetenskapsr?det) Grant 2019-02706.
 
 ## Installation
 
 The easiest way to install the
-[**optical**](https://CRAN.R-project.org/package=optical) package from CRAN
-using:
+[**optical**](https://CRAN.R-project.org/package=optical) package from
+CRAN using:
 
 ``` r
 install.packages("optical")
@@ -75,11 +92,8 @@ library(optical)
 
 # 2PL-models with difficulty and common discrimination parameters
 ip <- cbind(c(1.6, 1.6),  c(-1, 1))
-
 yyy <- optical(ip)
-
-# Table of interval boundaries for optimal design with items and probabilities
-yyy$ht
+yyy
 
 
 # Graph for (optimal) design
@@ -93,7 +107,8 @@ This package is free and open source software, licensed under GPL (\>=
 
 # Acknowledgement
 
-This work was supported by the Swedish Research Council (Vetenskapsrådet) Grant 2019-02706.
+This work was supported by the Swedish Research Council
+(Vetenskapsrådet) Grant 2019-02706.
 
 # References
 

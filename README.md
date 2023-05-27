@@ -16,6 +16,7 @@ version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optic
 [![test-coverage](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.org/package=optical)
+[![](http://cranlogs.r-pkg.org/badges/optical?color=brightgreen)](https://CRAN.R-project.org/package=optical)
 
 <!-- badges: end -->
 
@@ -40,7 +41,7 @@ efficiency or gain achieved through the optimal design is quantified by
 comparing it to a random allocation. This comparison allows for an
 assessment of how much improvement or advantage is gained by using the
 optimal design approach. This work was supported by the Swedish Research
-Council (Vetenskapsrådet) Grant 2019-02706.
+Council (Vetenskapsr?det) Grant 2019-02706.
 
 ## Installation
 
@@ -76,16 +77,17 @@ library(optical)
 
 # 2PL-models with difficulty and common discrimination parameters
 ip <- cbind(c(1.6, 1.6),  c(-1, 1))
-
 yyy <- optical(ip)
-
-# Table of interval boundaries for optimal design with items and probabilities
-yyy$ht
+yyy
+#> =================================================================== 
+#>  Table of interval boundaries for D-optimal design with items and
+#>  probabilities (expected proportion of examinees in this interval) 
+#> =================================================================== 
 #>      Lower    Upper Item Probability
-#> 1     -Inf -0.73445    1   0.2313373
-#> 2 -0.73445  0.00005    2   0.2686827
-#> 3  0.00005  0.73445    1   0.2686428
-#> 4  0.73445      Inf    2   0.2313373
+#> 1     -Inf -0.73445    1      0.2313
+#> 2 -0.73445  0.00005    2      0.2687
+#> 3  0.00005  0.73445    1      0.2686
+#> 4  0.73445      Inf    2      0.2313
 
 
 # Graph for (optimal) design
@@ -102,7 +104,7 @@ This package is free and open source software, licensed under GPL (\>=
 # Acknowledgement
 
 This work was supported by the Swedish Research Council
-(VetenskapsrÃ¥det) Grant 2019-02706.
+(Vetenskapsrådet) Grant 2019-02706.
 
 # References
 
