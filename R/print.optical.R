@@ -9,7 +9,7 @@
 #' @usage \method{print}{optical}(x,digits=max(3, getOption("digits")-3),\dots)
 #' @seealso \code{\link{optical}}
 #' @export
-print.optical<-function (x,digits = max(3, getOption("digits") - 3),...){
+print.optical<-function (x,digits=max(3, getOption("digits") - 3),...){
   row <- paste(rep("=", 67), collapse = "")
   cat(row, "\n")
 cat(

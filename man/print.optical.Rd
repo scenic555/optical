@@ -9,6 +9,8 @@
 \arguments{
 \item{x}{optical object.}
 
+\item{digits}{significant digits in printout.}
+
 \item{...}{other print arguments.}
 }
 \value{
