@@ -22,16 +22,20 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
-[![GitHub R package
-version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optical&logo=github)](https://github.com/scenic555/optical/releases)
+[![GitHub_R\_package_version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optical&logo=github)](https://github.com/scenic555/optical/releases)
 [![GitHub](https://img.shields.io/github/downloads/scenic555/optical/total?logo=github)](https://github.com/scenic555/optical)
 [![GitHub](https://img.shields.io/github/license/scenic555/optical?logo=github)](https://opensource.org/license/gpl-3-0/)
-[![R-CMD-check](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml)\
+
+[![R-CMD-check](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/R-CMD-check.yaml)
 [![pages-build-deployment](https://github.com/scenic555/optical/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/scenic555/optical/actions/workflows/pages/pages-build-deployment)
 [![test-coverage](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/scenic555/optical/actions/workflows/test-coverage.yaml)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.org/package=optical)
-[![](http://cranlogs.r-pkg.org/badges/optical?color=brightgreen)](https://CRAN.R-project.org/package=optical)
+
+[![CRAN_Version](https://www.r-pkg.org/badges/version-last-release/optical)](https://CRAN.R-project.org/package=optical)
+[![CRAN_checks](https://badges.cranchecks.info/worst/optical.svg)](https://cran.r-project.org/web/checks/check_results_optica.html){.pkgdown-release}
+[![CRAN_Downloads_dailly](http://cranlogs.r-pkg.org/badges/last-day/optical?color=brightgreen)](https://CRAN.R-project.org/package=optical)
+[![CRAN_Downloads_weekly](http://cranlogs.r-pkg.org/badges/last-week/optical?color=brightgreen)](https://CRAN.R-project.org/package=optical)
+[![CRAN_Downloads_monthly](http://cranlogs.r-pkg.org/badges/optical?color=brightgreen)](https://CRAN.R-project.org/package=optical)
+[![CRAN_Downloads_total](https://cranlogs.r-pkg.org/badges/grand-total/optical?color=brightgreen)](https://CRAN.R-project.org/package=optical)
 
 <!-- badges: end -->
 
