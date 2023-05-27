@@ -68,7 +68,7 @@ model, or 2PL with common discrimination for all items (Rasch-type).</p>
 <span>  ig <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>  ex <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  integ <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  show_progress <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  show_progress <span class="op">=</span> <span class="fl">1</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -76,8 +76,8 @@ model, or 2PL with common discrimination for all items (Rasch-type).</p>
     <h2>Arguments</h2>
     <dl><dt>ip</dt>
 <dd><p>matrix with item parameters for all items (number of rows determines
-number of items; number of column is 2 (2PL or Rasch-type with NA from second item
-in first column) or 3 (3PL or mixed 2/3-PL with NA for
+number of items; number of column is 2 (2PL or Rasch-type with NA from second
+item in first column) or 3 (3PL or mixed 2/3-PL with NA for
 2PL-items in third column).</p></dd>
 
 
@@ -149,16 +149,17 @@ information matrices; if false, Riemann rule is used.</p></dd>
 
 
 <dt>show_progress</dt>
-<dd><p>FALSE (default), This ensures that the + symbols are
-printed on a line for each Iteration otherwise some output of the
-function is printed.</p></dd>
+<dd><p>if 1 (default), no output will be printed for each iteration.
+If 2, the + symbols will be printed on a line for each Iteration
+If 3, some output of the function will be printed.</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
     
 
-<p>Result of this function is a list with following instances:</p>
+<p>an object of class ‘optical’ is returned, which is a list with
+following instances:</p>
 <dl><dt>dd</dt>
 <dd><p>directional derivatives of optimal solution.</p></dd>
 
@@ -214,73 +215,62 @@ Frank Miller (<a href="mailto:frank.miller@liu.se">frank.miller@liu.se</a>)</p>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="fl">1.6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu">optical</span><span class="op">(</span><span class="va">ip</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Outer iteration = 1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Adapt grid; outer iteration = 2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Table of interval boundaries for D-optimal design with items and</span></span></span>
-<span class="r-in"><span><span class="co"># probabilities (expected proportion of examinees in this interval)</span></span></span>
-<span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">ht</span></span></span>
+<span class="r-in"><span><span class="va">yyy</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> =================================================================== </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Table of interval boundaries for D-optimal design with items and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  probabilities (expected proportion of examinees in this interval) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> =================================================================== </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      Lower    Upper Item Probability</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     -Inf -0.73445    1   0.2313373</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.73445  0.00005    2   0.2686827</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.00005  0.73445    1   0.2686428</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.73445      Inf    2   0.2313373</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     -Inf -0.73445    1      0.2313</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.73445  0.00005    2      0.2687</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  0.00005  0.73445    1      0.2686</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.73445      Inf    2      0.2313</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># 1PL-models with common discrimination parameter for two items</span></span></span>
 <span class="r-in"><span><span class="co"># (model assumption is that both have same discrimination);</span></span></span>
 <span class="r-in"><span><span class="co"># parameters (a, b)=(1.6, -1) and (1.6, 1), respectively;</span></span></span>
 <span class="r-in"><span><span class="co"># NA for discrimination means that item has same parameter as preceeding item</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="cn">NA</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu">optical</span><span class="op">(</span><span class="va">ip</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Outer iteration = 1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Adapt grid; outer iteration = 2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Table of interval boundaries for D-optimal design with items and</span></span></span>
-<span class="r-in"><span><span class="co"># probabilities (expected proportion of examinees in this interval)</span></span></span>
-<span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">ht</span></span></span>
+<span class="r-in"><span><span class="va">yyy</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> =================================================================== </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Table of interval boundaries for D-optimal design with items and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  probabilities (expected proportion of examinees in this interval) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> =================================================================== </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      Lower    Upper Item Probability</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     -Inf -0.44545    1   0.3279973</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.44545 -0.00005    2   0.1719828</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.00005  0.44585    1   0.1721671</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.44585      Inf    2   0.3278528</span>
-<span class="r-in"><span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     -Inf -0.44545    1      0.3280</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.44545 -0.00005    2      0.1720</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.00005  0.44585    1      0.1722</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  0.44585      Inf    2      0.3279</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 3PL-models for three items; parameters (a, b, c)=(1, 2, 2.5),</span></span></span>
 <span class="r-in"><span><span class="co"># (-1.5, 0.5, 2) and (0.2, 0.1, 0.05), respectively.</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2.5</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.5</span>, <span class="fl">0.5</span>, <span class="fl">2</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu">optical</span><span class="op">(</span><span class="va">ip</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Outer iteration = 1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++++++++++++++++++++++++++++++++</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++++++++++++++++++++++++++++++++</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++++++++++++++++++++</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Adapt grid; outer iteration = 2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++++</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Table of interval boundaries for D-optimal design with items and</span></span></span>
-<span class="r-in"><span><span class="co"># probabilities (expected proportion of examinees in this interval)</span></span></span>
-<span class="r-in"><span><span class="va">yyy</span><span class="op">$</span><span class="va">ht</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Lower    Upper Item  Probability</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      -Inf -1.90655    1 2.828944e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -1.90655 -1.20405    2 8.599568e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -1.20405 -0.71505    1 1.230039e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  -0.71505 -0.22465    3 1.738367e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  -0.22465  0.26750    2 1.943321e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   0.26750  0.75155    1 1.683812e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   0.75155  0.92745    2 4.931439e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   0.92745  1.27505    3 7.570070e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   1.27505  1.62495    2 4.905917e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  1.62495  4.58500    3 5.208434e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  4.58500      Inf    1 2.269932e-06</span>
+<span class="r-in"><span><span class="va">yyy</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> =================================================================== </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Table of interval boundaries for D-optimal design with items and</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  probabilities (expected proportion of examinees in this interval) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> =================================================================== </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Lower   Upper Item Probability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     -Inf -1.9066    1   2.829e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  -1.9066 -1.2041    2   8.600e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  -1.2041 -0.7150    1   1.230e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  -0.7150 -0.2247    3   1.738e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  -0.2247  0.2675    2   1.943e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   0.2675  0.7515    1   1.684e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   0.7515  0.9274    2   4.931e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   0.9274  1.2750    3   7.570e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   1.2750  1.6250    2   4.906e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  1.6250  4.5850    3   5.208e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  4.5850     Inf    1   2.270e-06</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>

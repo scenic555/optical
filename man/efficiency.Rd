@@ -41,6 +41,9 @@ total criteria and efficiency. D-, L-, I-, A-optimality}
 \item{integ}{if true (default), integrate() is used for computation of partial
 information matrices; if false, Riemann rule is used.}
 }
+\value{
+A numerical value is displayed.
+}
 \description{
 This function computes the efficiency of the D, I, and A optimal designs
 compared to the random design.
@@ -51,14 +54,16 @@ ip <- cbind(c(1.6, 1.6),c(-1, 1))
 
 yyy <- optical(ip)
 
+# Efficiency of A-optimal design compared to random design
+efficiency(yyy, ip, oc="A")
+
+\donttest{
 # Efficiency of D-optimal design compared to random design
 efficiency(yyy, ip, oc="D")
 
 # Efficiency of I-optimal design compared to random design
 efficiency(yyy, ip, oc="I")
-
-# Efficiency of A-optimal design compared to random design
-efficiency(yyy, ip, oc="A")
+}
 }
 \seealso{
 \code{\link{optical}}

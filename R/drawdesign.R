@@ -25,6 +25,8 @@
 #'   }
 #' @param colvec  vector of color sequence for items (default is the R-default black, red, green, etc.)
 #'
+#' @return An optimal design plot is displayed.
+#'
 #' @seealso \code{\link{convergenceplot}}
 #'
 #' @export drawdesign
@@ -53,13 +55,16 @@ drawdesign <- function(yyy, ip, ablim=7, ylowl=-9999999, refline=0.002, textout=
   z1  <- h[, 1]
   z2  <- h[, 3]
 
-  if (layout>0) {
+  oldpar <- par(no.readonly = TRUE)
+  on.exit( par(oldpar))  # reset graphical parameters
+
+ if (layout>0) {
     #dev.new(width=8, height=5, unit="cm")
-    oldpar <- par(oma=c(1, 1, 0, 1), mar=c(2, 3, 0.5, 0), fig=c(0, 1, 0.53, 1))  # for combined graph
+    par(oma=c(1, 1, 0, 1), mar=c(2, 3, 0.5, 0), fig=c(0, 1, 0.53, 1))  # for combined graph
   }
   else {
     #dev.new(width=8, height=2.5, unit="cm")
-    oldpar <- par(oma=c(1, 1, 0, 1), mar=c(2, 3, 0.5, 0))
+    par(oma=c(1, 1, 0, 1), mar=c(2, 3, 0.5, 0))
   }
 
   # Normal distribution plot (Plot 1)
@@ -92,7 +97,9 @@ legend(x=-9,y=0.40, box.lty=0, inset=.005, ln,
   # Efficiency versus random design
   ti   <- length(moo[, 1])
   effi <- moo[ti, 3]
-  if (textout) legend("topright", legend=paste0(yyy$oc, "-efficiency vs.\n", "random design = ", round(effi, 3)), box.lty=0, cex=0.95)
+  if (textout) legend("topright", legend=paste0(yyy$oc, "-efficiency vs.\n",
+                "random design = ", round(effi, 3)), box.lty=0, cex=0.95,
+                bg = "transparent")
 
   if (layout>0) {
     par(fig=c(0, 1, 0.48, 0.52), oma=c(0, 1, 0, 1), mar=c(0, 3, 0, 0), new=TRUE)
@@ -165,5 +172,5 @@ legend(x=-9,y=0.40, box.lty=0, inset=.005, ln,
       }
     }
   }
-  par(oldpar)  # reset graphical parameters
+
 }

@@ -2,16 +2,14 @@ Package: optical
 Type: Package
 Title: Optimal Item Calibration
 Version: 1.7.1
-Date: 2023-05-16
+Date: 2023-05-24
 Depends: R (>= 4.1.0)
-Description: An R package for optimal item calibaration in computerized achievement tests.
- With this `optical` package, a set of items that require calibration can be
- optimally allocated to a group of examinees. The optimization process
- utilizes the restricted optimal design method, which has been described
- in detail by Ul Hassan and Miller in their works published in
- (2019) <doi:10.1177/0146621618824854>
- and (2021) <doi:10.1016/j.csda.2021.107177>. To use the
- method, preliminary item characteristics must be provided as input.
+Description: The restricted optimal design method is implemented to optimally 
+ allocate a set of items that require calibration to a group of examinees.
+ The optimization process is based on the method described in detail by 
+ Ul Hassan and Miller in their works published in (2019) 
+ <doi:10.1177/0146621618824854> and (2021) <doi:10.1016/j.csda.2021.107177>.
+ To use the method, preliminary item characteristics must be provided as input.
  These characteristics can either be expert guesses or based on previous
  calibration with a small number of examinees. The item characteristics
  should be described in the form of parameters for an Item Response
@@ -24,12 +22,14 @@ Description: An R package for optimal item calibaration in computerized achievem
  assessment of how much improvement or advantage is gained by using the
  optimal design approach. This work was supported by the Swedish Research Council
  (Vetenskapsrådet) Grant 2019-02706.
-Authors@R: c(person("Mahmood", "Ul Hassan", role = c("aut", "cre"),
+Authors@R: c(person(given="Mahmood", family="Ul Hassan", role = c("aut", "cre"),
            email ="scenic555@gmail.com",
-           comment = c(ORCID = "0000-0003-2889-0263")),
-           person("Frank", "Miller", role=c("aut"),
+           comment = c(ORCID ="https://orcid.org/0000-0003-2889-0263")),
+           person(given="Frank", family="Miller", role=c("aut"),
            email="frank.miller@liu.se",
-           comment=c(ORCID = "0000-0003-4161-7851")))
+           comment=c(ORCID ="https://orcid.org/0000-0003-4161-7851")))
+Author: Mahmood Ul Hassan [aut, cre] (<https://orcid.org/0000-0003-2889-0263>),
+        Frank Miller [aut] (<https://orcid.org/0000-0003-4161-7851>)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
@@ -38,6 +38,6 @@ License_restricts_use: no
 Repository: CRAN
 Maintainer: Mahmood Ul Hassan <scenic555@gmail.com>
 BugReports: https://github.com/scenic555/optical/issues
-URL: https://github.com/scenic555/optical
+URL: https://scenic555.github.io/optical/, https://github.com/scenic555/optical
 Language: en-GB
 Imports: stats

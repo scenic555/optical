@@ -8,7 +8,7 @@
 ########################################################################################################################################
 innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf,
                       maxiter=1000, eps=0.001, sss=0.0001, falpha=1.08,
-                      sdr=TRUE, integ=TRUE, xi,show_progress=FALSE) {
+                      sdr=TRUE, integ=TRUE, xi,show_progress=2) {
   n   <- length(t)      # number of different ability levels (grid size)
   k   <- dim(ip)[1]     # number of items
   mod <- dim(ip)[2]     # number of columns in ip (if 2, then 2PL; if 3, then 3PL model)
@@ -61,12 +61,15 @@ innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf,
     vssmin <- c(vssmin, imf[1])
     vssmax <- c(vssmax, imf[li])
 
-    if(show_progress) {
+    if(show_progress==3) {
     cat(iterc, " criterion.val.=", round(critval[mm], 5),
             " Max.Violation=", round(viomax, 7), "Step size=", round(imf[mm], 7),"\n")
-    } else {
+    }
 
-      if (iterc%%50 == 0) {
+    if(show_progress==2)
+    {
+
+      if (iterc%%70 == 0) {
         cat("+\n")  # Print "+" on the second line after 25 iterations
       }
       else {
@@ -87,7 +90,7 @@ innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf,
   moiter <- cbind(1:length(effi), effi, lvio, vss, vssmin, vssmax)
 
   # Add line break after last iteration
-  if (!show_progress) {
+  if (show_progress==2) {
     cat("\n")
   }
 

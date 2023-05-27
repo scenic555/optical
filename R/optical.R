@@ -5,8 +5,8 @@
 #' model, or 2PL with common discrimination for all items (Rasch-type).
 #'
 #' @param ip matrix with item parameters for all items (number of rows determines
-#' number of items; number of column is 2 (2PL or Rasch-type with NA from second item
-#' in first column) or 3 (3PL or mixed 2/3-PL with NA for
+#' number of items; number of column is 2 (2PL or Rasch-type with NA from second
+#' item in first column) or 3 (3PL or mixed 2/3-PL with NA for
 #' 2PL-items in third column).
 
 #' @param oc optimality criterion: "D" (D-optimality, default),
@@ -45,11 +45,12 @@
 #' @param integ if true (default), integrate() is used for computation of partial
 #'  information matrices; if false, Riemann rule is used.
 #'
-#' @param show_progress FALSE (default), This ensures that the + symbols are
-#' printed on a line for each Iteration otherwise some output of the
-#' function is printed.
+#' @param show_progress if 1 (default), no output will be printed for each iteration.
+#' If 2, the + symbols will be printed on a line for each Iteration
+#' If 3, some output of the function will be printed.
 
-#' @return    Result of this function is a list with following instances:
+#' @return    an object of class ‘optical’ is returned, which is a list with
+#'            following instances:
 #'  \item{dd}{directional derivatives of optimal solution.}
 #'  \item{xi}{optimal solution.}
 #'  \item{t}{final grid of ability values which was used.}
@@ -84,47 +85,35 @@
 #'
 #' @examples
 #' # 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively
+#'
 #' ip <- cbind(c(1.6, 1.6),c(-1, 1))
-#'
 #' yyy <- optical(ip)
+#' yyy
 #'
-#'
-#' # Table of interval boundaries for D-optimal design with items and
-#' # probabilities (expected proportion of examinees in this interval)
-#' yyy$ht
-#'
-#' @examples
+#' \donttest{
 #' # 1PL-models with common discrimination parameter for two items
 #' # (model assumption is that both have same discrimination);
 #' # parameters (a, b)=(1.6, -1) and (1.6, 1), respectively;
 #' # NA for discrimination means that item has same parameter as preceeding item
+#'
 #' ip <- cbind(c(1.6, NA), c(-1, 1))
-#'
 #' yyy <- optical(ip)
-#'
-#' # Table of interval boundaries for D-optimal design with items and
-#' # probabilities (expected proportion of examinees in this interval)
-#' yyy$ht
-#'
-#' @examples
+#' yyy
 #'
 #' # 3PL-models for three items; parameters (a, b, c)=(1, 2, 2.5),
 #' # (-1.5, 0.5, 2) and (0.2, 0.1, 0.05), respectively.
+#'
 #' ip <- cbind(c(1, 2, 2.5),c(-1.5, 0.5, 2),c(0.2, 0.1, 0.05))
-#'
 #' yyy <- optical(ip)
-#'
-#' # Table of interval boundaries for D-optimal design with items and
-#' # probabilities (expected proportion of examinees in this interval)
-#' yyy$ht
-
-
+#' yyy
+#' }
 
 optical <- function(ip, oc="D", uncert=FALSE, ipop,
                     imf=c(0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.45), maxiter=rep(300, 6), eps=rep(0.002, 6),
                     nnn=c(0, 50, 50, 200, 200, 200), nsp=c(0.001, 0.0001, 0.0001, 0.00001, 0.00001, 0.00001),
                     sss=0.001, falpha=1.08, sdr=TRUE, ig=3, ex=0, integ=TRUE,
-                    show_progress=FALSE) {
+                    show_progress=1) {
+
   starttime <- proc.time()
   L   <- NULL
   oc2 <- oc
@@ -141,8 +130,9 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
 
   oitermax  <- min(length(maxiter), length(eps), length(nnn), length(nsp))     # total number of outer iterations
   oiterc    <- 1                                                               # counter for outer iterations
-  #cat("\033[1;31m---> Outer iteration =", oiterc, "\033[0m\n")
-  cat("-----> Outer iteration =", oiterc, "\n")
+  if(show_progress!=1){
+  message("-----> Outer iteration =", oiterc)
+  }
   # Run optimization (maxiter = maximum number of iterations, eps = stopping criterion for maximum violation of equivalence criterion)
   yy  <- innerloop(t, ip, oc=oc2, L=L, uncert=uncert, ipop=ipop, imf,
                    maxiter=maxiter[oiterc], eps=eps[oiterc], sss=sss,
@@ -155,8 +145,9 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
     oiterc <- oiterc+1
     if (yy$viomax>eps[oiterc]) {
       # Adapt grid automatically
-      #cat("\033[1;31m---> Adapt grid; outer iteration =", oiterc, "\033[0m\n")
-      cat("-----> Adapt grid; outer iteration =", oiterc,"\n")
+      if(show_progress!=1){
+       message("-----> Adapt grid; outer iteration =", oiterc)
+      }
       t   <- adaptgrid(t, yy, nnn=nnn[oiterc], nsp=nsp[oiterc], ig=ig)
       xis <- boundaries2design(t, h1)
       # Run optimization
@@ -170,7 +161,7 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
     }
   }
   if (yy$viomax>eps[oiterc])
-  { print(paste0("Failed to converge. Maximum violation of eq.th.=",
+  { warning(paste0("Failed to converge. Maximum violation of eq.th.=",
                    round(yy$viomax,5), " instead of ", eps[oiterc], ".")) }
   # Time in minutes
   runtime <- (proc.time()-starttime)/60
@@ -185,9 +176,15 @@ optical <- function(ip, oc="D", uncert=FALSE, ipop,
   g<-cbind(Lower,Upper,Item,Probability)
   rownames(g)<- 1:length(Lower)
 
-  list(dd=yy$dd, xi=yy$xi, t=t, viomax=yy$viomax, h1=h1,ht=g, mooiter=mooiter,
+  output<-list(dd=yy$dd, xi=yy$xi, t=t, viomax=yy$viomax, h1=h1,ht=g, mooiter=mooiter,
        time=runtime, oc=oc, L=L)
+
+  class(output)<-"optical"
+  return(output)
+
 }
+
+
 
 
 

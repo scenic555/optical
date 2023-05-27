@@ -11,6 +11,9 @@ convergenceplot(yyy, refline = c(0.002, 1e-05))
 
 \item{refline}{reference line}
 }
+\value{
+A convergence plot is displayed.
+}
 \description{
 Convergence plots displaying efficiency of design, violations of equivalence
 theorem, and alpha(Step length used) vs. iteration number. These plot are

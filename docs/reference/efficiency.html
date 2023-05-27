@@ -107,6 +107,12 @@ total criteria and efficiency. D-, L-, I-, A-optimality</p></dd>
 information matrices; if false, Riemann rule is used.</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>A numerical value is displayed.</p>
+    </div>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="optical.html">optical</a></code></p></div>
@@ -118,11 +124,12 @@ information matrices; if false, Riemann rule is used.</p></dd>
 <span class="r-in"><span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="fl">1.6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu"><a href="optical.html">optical</a></span><span class="op">(</span><span class="va">ip</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Outer iteration = 1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Adapt grid; outer iteration = 2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Efficiency of A-optimal design compared to random design</span></span></span>
+<span class="r-in"><span><span class="fu">efficiency</span><span class="op">(</span><span class="va">yyy</span>, <span class="va">ip</span>, oc<span class="op">=</span><span class="st">"A"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.369236</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Efficiency of D-optimal design compared to random design</span></span></span>
 <span class="r-in"><span><span class="fu">efficiency</span><span class="op">(</span><span class="va">yyy</span>, <span class="va">ip</span>, oc<span class="op">=</span><span class="st">"D"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.23116</span>
@@ -130,10 +137,7 @@ information matrices; if false, Riemann rule is used.</p></dd>
 <span class="r-in"><span><span class="co"># Efficiency of I-optimal design compared to random design</span></span></span>
 <span class="r-in"><span><span class="fu">efficiency</span><span class="op">(</span><span class="va">yyy</span>, <span class="va">ip</span>, oc<span class="op">=</span><span class="st">"I"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.1181</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Efficiency of A-optimal design compared to random design</span></span></span>
-<span class="r-in"><span><span class="fu">efficiency</span><span class="op">(</span><span class="va">yyy</span>, <span class="va">ip</span>, oc<span class="op">=</span><span class="st">"A"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.369236</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>

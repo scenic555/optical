@@ -114,6 +114,12 @@ and the efficiency vs. the random design; if textout=FALSE, no such text is prin
 <dd><p>vector of color sequence for items (default is the R-default black, red, green, etc.)</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>An optimal design plot is displayed.</p>
+    </div>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="convergenceplot.html">convergenceplot</a></code></p></div>
@@ -125,10 +131,6 @@ and the efficiency vs. the random design; if textout=FALSE, no such text is prin
 <span class="r-in"><span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="fl">1.6</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu"><a href="optical.html">optical</a></span><span class="op">(</span><span class="va">ip</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Outer iteration = 1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++++++++++++++++++</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----&gt; Adapt grid; outer iteration = 2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ++</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">drawdesign</span><span class="op">(</span>yyy<span class="op">=</span><span class="va">yyy</span>, ip<span class="op">=</span><span class="va">ip</span>, ylowl<span class="op">=</span><span class="op">-</span><span class="fl">1000</span>, refline<span class="op">=</span><span class="fl">0.002</span>, layout<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drawdesign-1.png" alt="" width="700" height="433"></span>

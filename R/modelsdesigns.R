@@ -17,6 +17,8 @@ modelsdesigns <- function(ip, yh, ablim=4, legi=NA, legd=NA){
   dev.new(width=8, height=5, unit="cm")
 
   oldpar <- par(oma=c(1, 1, 0, 1), mar=c(2, 3, 0.5, 0), fig=c(0, 1, 0.5, 1))  # first panel
+  oldpar <- par(no.readonly = TRUE)
+  on.exit( par(oldpar))  # reset graphical parameters
   plot(c(-ablim, ablim), c(0, 1), type="n", xlab="Ability", ylab="", las=1)
   text(ablim-1, 0.15, legi)
   t <- seq(-ablim, ablim, by=0.01)
@@ -35,5 +37,4 @@ modelsdesigns <- function(ip, yh, ablim=4, legi=NA, legd=NA){
     for (j in 2:dim(yyh)[1]) { lines(c(yyh[(j-1), 1], yyh[j, 1]), rep(1-(i-0.5)/nd, 2), col=yyh[j, 2], lend=1, lwd=lwd0) }
     mtext(legd[i], side=2, at=1-(i-0.5)/nd, las=1, adj=1.1)
   }
-  par(oldpar)  # reset graphical parameters
 }

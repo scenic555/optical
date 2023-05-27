@@ -22,10 +22,10 @@ status](https://www.r-pkg.org/badges/version/optical)](https://CRAN.R-project.or
 An R package for optimal item calibaration in computerized achievement
 tests.
 
-With this `optical` package, a set of items that require calibration can
-be optimally allocated to a group of examinees. The optimization process
-utilizes the restricted optimal design method, which has been described
-in detail by Ul Hassan and Miller in their works published in
+The restricted optimal design method is implemented to optimally
+allocate a set of items that require calibration to a group of
+examinees. The optimization process is based on the method described in
+detail by Ul Hassan and Miller in their works published in
 [**2019**](https://link.springer.com/article/10.1007/s11336-019-09673-6)
 and [**2021**](https://doi.org/10.1016/j.csda.2021.107177). To use the
 method, preliminary item characteristics must be provided as input.
@@ -39,13 +39,14 @@ that determine which examinees should be assigned to each item. The
 efficiency or gain achieved through the optimal design is quantified by
 comparing it to a random allocation. This comparison allows for an
 assessment of how much improvement or advantage is gained by using the
-optimal design approach.
+optimal design approach. This work was supported by the Swedish Research
+Council (Vetenskapsrådet) Grant 2019-02706.
 
 ## Installation
 
 The easiest way to install the
-[**optical**](https://scenic555.github.io/optical/) package from CRAN
-using:
+[**optical**](https://CRAN.R-project.org/package=optical) package from
+CRAN using:
 
 ``` r
 install.packages("optical")
@@ -77,10 +78,6 @@ library(optical)
 ip <- cbind(c(1.6, 1.6),  c(-1, 1))
 
 yyy <- optical(ip)
-#> -----> Outer iteration = 1 
-#> ++++++++++++++++++
-#> -----> Adapt grid; outer iteration = 2 
-#> ++
 
 # Table of interval boundaries for optimal design with items and probabilities
 yyy$ht
@@ -105,7 +102,7 @@ This package is free and open source software, licensed under GPL (\>=
 # Acknowledgement
 
 This work was supported by the Swedish Research Council
-(Vetenskapsrådet) Grant 2019-02706.
+(VetenskapsrÃ¥det) Grant 2019-02706.
 
 # References
 

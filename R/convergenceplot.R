@@ -1,11 +1,11 @@
-########################################################################################################################################
+################################################################################
 # Convergence plots
 # First panel monitors efficiency of design vs. iteration number
 # Second panel monitors violations of equivalence theorem vs. iteration number
 # Third panel monitors step size used vs. iteration number
 # Maybe add following in future verions:
 # Fourth panel shows final grid
-########################################################################################################################################
+#################################################################################
 #' Convergence plot
 #'
 #' Convergence plots displaying efficiency of design, violations of equivalence
@@ -23,6 +23,8 @@
 #'  \item {Third panel monitors step size used vs. iteration number}
 #'   }
 #'
+#' @return A convergence plot is displayed.
+#'
 #' @seealso \code{\link{drawdesign}}
 #'
 #' @export convergenceplot
@@ -35,13 +37,19 @@
 #'
 #' convergenceplot(yyy, refline=c(0.002, 0.001*0.005/0.45))
 
+
 convergenceplot <- function(yyy, refline=c(0.002, 0.00001)) {
 
-  moo=yyy$mooiter
+ moo=yyy$mooiter
 
-  oldpar <- par(mfrow=c(3, 1), oma=c(1, 1, 0, 1), mar=c(2, 3, 0.5, 0))  # for combined graph
+ # Save the current par settings
+ oldpar <- par(no.readonly = TRUE)
+ on.exit( par(oldpar))  # reset graphical parameters
 
-  ti  <- length(moo[, 1])  # total number of iterations
+ par(mfrow=c(3, 1), oma=c(1, 1, 0, 1), mar=c(2, 3, 0.5, 0)) # for combined graph
+
+
+ ti  <- length(moo[, 1])  # total number of iterations
   nil <- c()               # number of iteration when new inner loop (nil) begins
   for (i in 2:ti) {
     if (moo[i-1, 1] < moo[i, 1]) { nil <- c(nil, i-0.5) }
@@ -77,5 +85,5 @@ convergenceplot <- function(yyy, refline=c(0.002, 0.00001)) {
   abline(v=nil, lty=2)
   abline(h=refline[2], lty=2)
 
-  par(oldpar)  # reset graphical parameters
 }
+

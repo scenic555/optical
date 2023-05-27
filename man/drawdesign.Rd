@@ -46,6 +46,9 @@ and the efficiency vs. the random design; if textout=FALSE, no such text is prin
 
 \item{colvec}{vector of color sequence for items (default is the R-default black, red, green, etc.)}
 }
+\value{
+An optimal design plot is displayed.
+}
 \description{
 Generate plot for optimal design with four possible layouts. All layouts have design
 first incl. efficiency vs. random design; then line with item having minimal

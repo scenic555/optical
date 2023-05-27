@@ -3,8 +3,8 @@
 # If items = FALSE, single value for total block efficiency
 # If items = TRUE, criteria for optimal and random and the efficiency for each item are reported in each column of output;
 # last column are then total criteria and efficiency. D-, L-, I-, A-optimality
-#  xi= vector of a design to be compared with random design
-#  t=vector of abilities
+# xi= vector of a design to be compared with random design
+# t=vector of abilities
 ########################################################################################################################################
 
 #' @title Efficiency of optimal design
@@ -32,6 +32,8 @@
 #' @param integ if true (default), integrate() is used for computation of partial
 #'  information matrices; if false, Riemann rule is used.
 #'
+#' @return A numerical value is displayed.
+#'
 #' @seealso \code{\link{optical}}
 #'
 #' @export efficiency
@@ -42,14 +44,16 @@
 #'
 #' yyy <- optical(ip)
 #'
+#' # Efficiency of A-optimal design compared to random design
+#' efficiency(yyy, ip, oc="A")
+#'
+#' \donttest{
 #' # Efficiency of D-optimal design compared to random design
 #' efficiency(yyy, ip, oc="D")
 #'
 #' # Efficiency of I-optimal design compared to random design
 #' efficiency(yyy, ip, oc="I")
-#'
-#' # Efficiency of A-optimal design compared to random design
-#' efficiency(yyy, ip, oc="A")
+#' }
 
 
 

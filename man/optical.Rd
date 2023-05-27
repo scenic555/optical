@@ -20,13 +20,13 @@ optical(
   ig = 3,
   ex = 0,
   integ = TRUE,
-  show_progress = FALSE
+  show_progress = 1
 )
 }
 \arguments{
 \item{ip}{matrix with item parameters for all items (number of rows determines
-number of items; number of column is 2 (2PL or Rasch-type with NA from second item
-in first column) or 3 (3PL or mixed 2/3-PL with NA for
+number of items; number of column is 2 (2PL or Rasch-type with NA from second
+item in first column) or 3 (3PL or mixed 2/3-PL with NA for
 2PL-items in third column).}
 
 \item{oc}{optimality criterion: "D" (D-optimality, default),
@@ -68,12 +68,13 @@ if ex=0, no consolidation will be done.}
 \item{integ}{if true (default), integrate() is used for computation of partial
 information matrices; if false, Riemann rule is used.}
 
-\item{show_progress}{FALSE (default), This ensures that the + symbols are
-printed on a line for each Iteration otherwise some output of the
-function is printed.}
+\item{show_progress}{if 1 (default), no output will be printed for each iteration.
+If 2, the + symbols will be printed on a line for each Iteration
+If 3, some output of the function will be printed.}
 }
 \value{
-Result of this function is a list with following instances:
+an object of class ‘optical’ is returned, which is a list with
+following instances:
 \item{dd}{directional derivatives of optimal solution.}
 \item{xi}{optimal solution.}
 \item{t}{final grid of ability values which was used.}
@@ -94,37 +95,28 @@ model, or 2PL with common discrimination for all items (Rasch-type).
 }
 \examples{
 # 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively
+
 ip <- cbind(c(1.6, 1.6),c(-1, 1))
-
 yyy <- optical(ip)
+yyy
 
-
-# Table of interval boundaries for D-optimal design with items and
-# probabilities (expected proportion of examinees in this interval)
-yyy$ht
-
+\donttest{
 # 1PL-models with common discrimination parameter for two items
 # (model assumption is that both have same discrimination);
 # parameters (a, b)=(1.6, -1) and (1.6, 1), respectively;
 # NA for discrimination means that item has same parameter as preceeding item
+
 ip <- cbind(c(1.6, NA), c(-1, 1))
-
 yyy <- optical(ip)
-
-# Table of interval boundaries for D-optimal design with items and
-# probabilities (expected proportion of examinees in this interval)
-yyy$ht
-
+yyy
 
 # 3PL-models for three items; parameters (a, b, c)=(1, 2, 2.5),
 # (-1.5, 0.5, 2) and (0.2, 0.1, 0.05), respectively.
+
 ip <- cbind(c(1, 2, 2.5),c(-1.5, 0.5, 2),c(0.2, 0.1, 0.05))
-
 yyy <- optical(ip)
-
-# Table of interval boundaries for D-optimal design with items and
-# probabilities (expected proportion of examinees in this interval)
-yyy$ht
+yyy
+}
 }
 \references{
 Ul Hassan and Miller (2021). \href{https://www.sciencedirect.com/science/article/pii/S0167947321000116?via\%3Dihub}{An exchange algorithm for optimal calibration of items in computerized achievement tests}.\emph{Computational Statistics and

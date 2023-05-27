@@ -18,14 +18,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Optimal Item Calibration">
-<meta property="og:description" content="An R package for optimal item calibaration in computerized achievement tests.
- With this `optical` package, a set of items that require calibration can be
- optimally allocated to a group of examinees. The optimization process
- utilizes the restricted optimal design method, which has been described
- in detail by Ul Hassan and Miller in their works published in
- (2019) &lt;doi:10.1177/0146621618824854&gt;
- and (2021) &lt;doi:10.1016/j.csda.2021.107177&gt;. To use the
- method, preliminary item characteristics must be provided as input.
+<meta property="og:description" content="The restricted optimal design method is implemented to optimally 
+ allocate a set of items that require calibration to a group of examinees.
+ The optimization process is based on the method described in detail by 
+ Ul Hassan and Miller in their works published in (2019) 
+ &lt;doi:10.1177/0146621618824854&gt; and (2021) &lt;doi:10.1016/j.csda.2021.107177&gt;.
+ To use the method, preliminary item characteristics must be provided as input.
  These characteristics can either be expert guesses or based on previous
  calibration with a small number of examinees. The item characteristics
  should be described in the form of parameters for an Item Response
@@ -101,11 +99,11 @@
 
 <!-- badges: end -->
 <p>An R package for optimal item calibaration in computerized achievement tests.</p>
-<p>With this <code>optical</code> package, a set of items that require calibration can be optimally allocated to a group of examinees. The optimization process utilizes the restricted optimal design method, which has been described in detail by Ul Hassan and Miller in their works published in <a href="https://link.springer.com/article/10.1007/s11336-019-09673-6" class="external-link"><strong>2019</strong></a> and <a href="https://doi.org/10.1016/j.csda.2021.107177" class="external-link"><strong>2021</strong></a>. To use the method, preliminary item characteristics must be provided as input. These characteristics can either be expert guesses or based on previous calibration with a small number of examinees. The item characteristics should be described in the form of parameters for an Item Response Theory (IRT) model. These models can include the Rasch model, the 2-parameter logistic model, the 3-parameter logistic model, or a mixture of these models. The output consists of a set of rules for each item that determine which examinees should be assigned to each item. The efficiency or gain achieved through the optimal design is quantified by comparing it to a random allocation. This comparison allows for an assessment of how much improvement or advantage is gained by using the optimal design approach.</p>
+<p>The restricted optimal design method is implemented to optimally allocate a set of items that require calibration to a group of examinees. The optimization process is based on the method described in detail by Ul Hassan and Miller in their works published in <a href="https://link.springer.com/article/10.1007/s11336-019-09673-6" class="external-link"><strong>2019</strong></a> and <a href="https://doi.org/10.1016/j.csda.2021.107177" class="external-link"><strong>2021</strong></a>. To use the method, preliminary item characteristics must be provided as input. These characteristics can either be expert guesses or based on previous calibration with a small number of examinees. The item characteristics should be described in the form of parameters for an Item Response Theory (IRT) model. These models can include the Rasch model, the 2-parameter logistic model, the 3-parameter logistic model, or a mixture of these models. The output consists of a set of rules for each item that determine which examinees should be assigned to each item. The efficiency or gain achieved through the optimal design is quantified by comparing it to a random allocation. This comparison allows for an assessment of how much improvement or advantage is gained by using the optimal design approach. This work was supported by the Swedish Research Council (Vetenskapsrådet) Grant 2019-02706.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>The easiest way to install the <a href="https://scenic555.github.io/optical/" class="external-link"><strong>optical</strong></a> package from CRAN using:</p>
+<p>The easiest way to install the <a href="https://CRAN.R-project.org/package=optical" class="external-link"><strong>optical</strong></a> package from CRAN using:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"optical"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the development version of <a href="https://scenic555.github.io/optical/" class="external-link"><strong>optical</strong></a> from <a href="https://github.com/" class="external-link">GitHub</a> with the following code:</p>
@@ -117,23 +115,19 @@
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"scenic555/optical"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Load the optical package</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/scenic555/optical" class="external-link">optical</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://scenic555.github.io/optical/" class="external-link">optical</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/scenic555/optical" class="external-link">optical</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://scenic555.github.io/optical/" class="external-link">optical</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># 2PL-models with difficulty and common discrimination parameters</span></span>
 <span><span class="va">ip</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.6</span>, <span class="fl">1.6</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/optical.html">optical</a></span><span class="op">(</span><span class="va">ip</span><span class="op">)</span></span>
-<span><span class="co">#&gt; -----&gt; Outer iteration = 1 </span></span>
-<span><span class="co">#&gt; ++++++++++++++++++</span></span>
-<span><span class="co">#&gt; -----&gt; Adapt grid; outer iteration = 2 </span></span>
-<span><span class="co">#&gt; ++</span></span>
 <span></span>
 <span><span class="co"># Table of interval boundaries for optimal design with items and probabilities</span></span>
 <span><span class="va">yyy</span><span class="op">$</span><span class="va">ht</span></span>
@@ -157,7 +151,7 @@
 <div class="section level1">
 <h1 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>
 </h1>
-<p>This work was supported by the Swedish Research Council (Vetenskapsrådet) Grant 2019-02706.</p>
+<p>This work was supported by the Swedish Research Council (VetenskapsrÃ¥det) Grant 2019-02706.</p>
 </div>
 <div class="section level1">
 <h1 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
@@ -173,6 +167,7 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=optical" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/scenic555/optical/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/scenic555/optical/issues" class="external-link">Report a bug</a></li>
 </ul>
@@ -197,8 +192,8 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Mahmood Ul Hassan <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-2889-0263" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Frank Miller <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-4161-7851" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Mahmood Ul Hassan <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/https://orcid.org/0000-0003-2889-0263" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Frank Miller <br><small class="roles"> Author </small> <a href="https://orcid.org/https://orcid.org/0000-0003-4161-7851" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
