@@ -8,7 +8,7 @@ Description: The restricted optimal design method is implemented to optimally
  allocate a set of items that require calibration to a group of examinees.
  The optimization process is based on the method described in detail by 
  Ul Hassan and Miller in their works published in (2019) 
- <doi:10.1177/0146621618824854> and (2021) <doi:10.1016/j.csda.2021.107177>.
+ <doi:10.1007/s11336-019-09673-6> and (2021) <doi:10.1016/j.csda.2021.107177>.
  To use the method, preliminary item characteristics must be provided as input.
  These characteristics can either be expert guesses or based on previous
  calibration with a small number of examinees. The item characteristics
