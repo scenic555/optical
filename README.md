@@ -7,7 +7,7 @@
 
 <!-- badges: start -->
 
-[![GitHub_R\_package_version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optical&logo=github)](https://github.com/scenic555/optical/releases)
+[![GitHub_R_package_version](https://img.shields.io/github/r-package/v/scenic555/optical?label=Optical&logo=github)](https://github.com/scenic555/optical/releases)
 [![GitHub_download](https://img.shields.io/github/downloads/scenic555/optical/total?logo=github)](https://github.com/scenic555/optical)
 [![GitHub_version](https://img.shields.io/github/license/scenic555/optical?logo=github)](https://opensource.org/license/gpl-3-0/)
 
@@ -28,7 +28,7 @@ alt="CRAN_checks" /></a>
 
 <!-- badges: end -->
 
-An R package for optimal item calibaration in computerized achievement
+An R package for optimal item calibration in computerized achievement
 tests.
 
 The restricted optimal design method is implemented to optimally
@@ -83,23 +83,31 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(optical)
 
-# 2PL-models with difficulty and common discrimination parameters
-ip <- cbind(c(1.6, 1.6),  c(-1, 1))
+# 2PL-model for three items with parameters (a, b) equal to (1.6,-2),
+# (1.6,0.5), and (1.6, 2) for the first, second, and third items,
+# respectively.The calibration of these three items with the 2PL model
+# is conducted in one block.
+
+a<-c(1.6,1.6,1.6); b<-c(-2,0.5,2)
+ip <-cbind(a,b)
 yyy <- optical(ip)
 yyy
+#> Block1 
 #> =================================================================== 
-#>  Table of interval boundaries for D-optimal design with items and
-#>  probabilities (expected proportion of examinees in this interval) 
+#> Table of interval boundaries for D-optimal design with items and
+#> probabilities (expected proportion of examinees in this interval) 
 #> =================================================================== 
-#>      Lower    Upper Item Probability
-#> 1     -Inf -0.73445    1      0.2313
-#> 2 -0.73445  0.00005    2      0.2687
-#> 3  0.00005  0.73445    1      0.2686
-#> 4  0.73445      Inf    2      0.2313
+#>     Lower   Upper Item Probability
+#> 1    -Inf -1.0957    1     0.13662
+#> 2 -1.0957 -0.3965    2     0.20925
+#> 3 -0.3965  0.0705    1     0.18223
+#> 4  0.0705  0.6431    3     0.21183
+#> 5  0.6431  1.4099    2     0.18077
+#> 6  1.4099     Inf    3     0.07929
 
 
 # Graph for (optimal) design
-drawdesign(yyy=yyy, ip=ip, ylowl=-1000, refline=0.002, layout=1)
+drawdesign(yyy=yyy, ylowl=-1000, refline=0.002, layout=1)
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />

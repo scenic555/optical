@@ -15,9 +15,10 @@ convergenceplot(yyy, refline = c(0.002, 1e-05))
 A convergence plot is displayed.
 }
 \description{
-Convergence plots displaying efficiency of design, violations of equivalence
-theorem, and alpha(Step length used) vs. iteration number. These plot are
-suitable for monitoring the convergence of optimal item calibration algorithm.
+For each block, convergence plots displaying efficiency of design, violations
+of equivalence theorem, and alpha(Step length used) vs. iteration number.
+These plots are suitable for monitoring the convergence of optimal item
+calibration algorithm.
 }
 \details{
 Convergence plots have three panel.
@@ -28,13 +29,29 @@ Convergence plots have three panel.
 }
 }
 \examples{
-# 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively
-ip <- cbind(c(1.6, 1.6),c(-1, 1))
+# Example No.1
+# 2PL-model for three items with parameters (a, b) equal to (1.6, -2), (1.6, 0.5),
+# and (1.6, 2) for the first, second, and third items, respectively.
 
+ip <- cbind(c(1.6, 1.6,1.6),c(-2, 0.5,2))
 yyy <- optical(ip)
-
 convergenceplot(yyy, refline=c(0.002, 0.001*0.005/0.45))
+
+\dontrun{
+
+# Example No.2
+# 2PL-models for six items; parameters a=(1.62,1.4,0.98,0.66,0.92,0.9),
+# and b=(-0.47,-1.71, 0.62,-0.15,-1.71,1.6), respectively.
+
+a<-c(1.62, 1.4,0.98,0.66,0.92,0.9)
+b<-c(-0.47,-1.71,0.62,-0.15,-1.71,1.6)
+ip<-cbind(a,b)
+bid<-c(1,1,1,2,2,2)
+yyy <- optical(ip,BID=bid,show_progress=2)
+convergenceplot(yyy, refline=c(0.002, 0.001*0.005/0.45))
+
+}
 }
 \seealso{
-\code{\link{drawdesign}}
+\code{\link{drawdesign}}, \code{\link{drawdesign_allitems}}
 }

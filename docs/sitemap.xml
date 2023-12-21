@@ -13,10 +13,16 @@
     <loc>/LICENSE.html</loc>
   </url>
   <url>
+    <loc>/news/index.html</loc>
+  </url>
+  <url>
     <loc>/reference/convergenceplot.html</loc>
   </url>
   <url>
     <loc>/reference/drawdesign.html</loc>
+  </url>
+  <url>
+    <loc>/reference/drawdesign_allitems.html</loc>
   </url>
   <url>
     <loc>/reference/efficiency.html</loc>

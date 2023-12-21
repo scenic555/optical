@@ -1,6 +1,2 @@
-^optical\.Rproj$
+^.*\.Rproj$
 ^\.Rproj\.user$
-^README\.Rmd$
-^\.github$
-^LICENSE\.md$
-^codecov\.yml$

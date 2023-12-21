@@ -2,11 +2,10 @@
 % Please edit documentation in R/drawdesign.R
 \name{drawdesign}
 \alias{drawdesign}
-\title{Graph for (optimal) design}
+\title{Graph for (optimal) design in each block}
 \usage{
 drawdesign(
   yyy,
-  ip,
   ablim = 7,
   ylowl = -9999999,
   refline = 0.002,
@@ -18,10 +17,6 @@ drawdesign(
 }
 \arguments{
 \item{yyy}{a \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}}
-
-\item{ip}{matrix with item parameters for all items (number of rows
-determines number of items; number of column 2 (2PL) or
-3 (3PL or mixed 2/3-PL with NA for 2PL-items in third column).}
 
 \item{ablim}{ability limits; plots will be made in the range [-ablim, ablim]}
 
@@ -50,17 +45,35 @@ and the efficiency vs. the random design; if textout=FALSE, no such text is prin
 An optimal design plot is displayed.
 }
 \description{
-Generate plot for optimal design with four possible layouts. All layouts have design
-first incl. efficiency vs. random design; then line with item having minimal
-directional derivative
+Generate a plot for optimal design within each block, showcasing six possible layouts.
+All layouts feature the design first, including efficiency versus random design,
+followed by a line representing the item with the minimal directional derivative.
 }
 \examples{
-# 2PL-models for two items; parameters (a, b)=(1.6, -1) and (1.6, 1), respectively
-ip <- cbind(c(1.6, 1.6),c(-1, 1))
 
+# Example No.1
+# 2PL-model for three items with parameters (a, b) equal to (1.6, -2), (1.6, 0.5),
+# and (1.6, 2) for the first, second, and third items, respectively.
+
+a<-c(1.6, 1.6,1.6); b<-c(-2, 0.5,2)
+ip <- cbind(a,b)
 yyy <- optical(ip)
+drawdesign(yyy, ylowl=-1000, refline=0.002)
 
-drawdesign(yyy=yyy, ip=ip, ylowl=-1000, refline=0.002, layout=1)
+\dontrun{
+
+# Example No.2
+# 2PL-models for six items; the parameters for these items are a=(1.62, 1.4,0.98,0.66,0.92,0.9),
+# and b=(-0.47, -1.71, 0.62,-0.15,-1.71,1.6), respectively.
+
+a<-c(1.62, 1.4,0.98,0.66,0.92,0.9); b<-c(-0.47, -1.71, 0.62,-0.15,-1.71,1.6)
+ip<-cbind(a,b)
+bid<-c(1,1,1,2,2,2)
+yyy <- optical(ip,BID=bid,show_progress=2)
+
+drawdesign(yyy, ylowl=-1000, refline=0.002, layout=5)
+
+}
 }
 \seealso{
 \code{\link{convergenceplot}}
