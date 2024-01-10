@@ -1,4 +1,4 @@
-#' print a optical object
+#' print an optical object
 #'
 #'
 #' This function print the table of interval boundaries for
