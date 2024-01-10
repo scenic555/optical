@@ -8,20 +8,20 @@
 #################################################################################
 #'  Convergence plot
 #'
-#'  For each block, convergence plots displaying efficiency of design, violations
-#'  of equivalence theorem, and alpha(Step length used) vs. iteration number.
-#'  These plots are suitable for monitoring the convergence of optimal item
+#'  For each block, convergence plots display efficiency of design, violations
+#'  of the equivalence theorem, the step length used vs. iteration number.
+#'  These plots are suitable for monitoring the convergence of the optimal item
 #'  calibration algorithm.
 #'
 #'
 #' @param yyy   a \code{\link{optical}} object; the output of a call [optical()]
 #' @param refline  reference line
 #'
-#' @details Convergence plots have three panel.
+#' @details Convergence plots have three panels.
 #'  \itemize{
 #'  \item {First panel monitors efficiency of design vs. iteration number}
 #'  \item {Second panel monitors violations of equivalence theorem vs. iteration number}
-#'  \item {Third panel monitors step size used vs. iteration number}
+#'  \item {Third panel monitors step size used vs. iteration number.}
 #'   }
 #'
 #' @return A convergence plot is displayed.
