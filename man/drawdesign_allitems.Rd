@@ -4,7 +4,7 @@
 \alias{drawdesign_allitems}
 \title{Optimal calibration design for all items}
 \usage{
-drawdesign_allitems(yyy, linew = NULL, ablim = 7, colvec = NULL)
+drawdesign_allitems(yyy, linew = NULL, ablim = 4, colvec = NULL)
 }
 \arguments{
 \item{yyy}{a \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}}
@@ -28,7 +28,7 @@ by different colored lines for each item.
 # 2PL-model for three items with parameters (a, b) equal to (1.6, -2), (1.6, 0.5),
 # and (1.6, 2) for the first, second, and third items, respectively.
 
-ip <- cbind(c(1.6, 1.6,1.6),c(-2, 0.5,2))
+ip <- cbind(c(1.6, 1.6, 1.6), c(-2, 0.5, 2))
 yyy <- optical(ip)
 drawdesign_allitems(yyy)
 
@@ -38,9 +38,9 @@ drawdesign_allitems(yyy)
 # 2PL-models for six items; the parameters for these items are a=(1.62, 1.4, 0.98, 0.66, 0.92, 0.9),
 # and b=(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6), respectively.
 
-ip <- cbind(c(1.62, 1.4, 0.98, 0.66, 0.92, 0.9),c(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6))
+ip <- cbind(c(1.62, 1.4, 0.98, 0.66, 0.92, 0.9), c(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6))
 bid <- c(1, 1, 1, 2, 2, 2)
-yyy <- optical(ip, BID = bid, show_progress = 2)
+yyy <- optical(ip, bid = bid, show_progress = 2)
 drawdesign_allitems(yyy)
 
 # Items of the same color that are in the same block.

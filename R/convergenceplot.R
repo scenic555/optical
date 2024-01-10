@@ -54,7 +54,7 @@
 #' b<-c(-0.47,-1.71,0.62,-0.15,-1.71,1.6)
 #' ip<-cbind(a,b)
 #' bid<-c(1,1,1,2,2,2)
-#' yyy <- optical(ip,BID=bid,show_progress=2)
+#' yyy <- optical(ip,bid=bid,show_progress=2)
 #' convergenceplot(yyy, refline=c(0.002, 0.001*0.005/0.45))
 #'
 #' }

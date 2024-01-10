@@ -32,7 +32,7 @@
 #'
 #' ip <- cbind(c(1.62, 1.4, 0.98, 0.66, 0.92, 0.9), c(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6))
 #' bid <- c(1, 1, 1, 2, 2, 2)
-#' yyy <- optical(ip, BID = bid, show_progress = 2)
+#' yyy <- optical(ip, bid = bid, show_progress = 2)
 #' drawdesign_allitems(yyy)
 #'
 #' # Items of the same color that are in the same block.
@@ -80,7 +80,7 @@ for(j in 1:length(yyy$ht)){
   u <- rbind(c(-8, 0), x, c(8, imd[p]))
 
   for(s in 1:length(ypoint)){
-    w < u
+    w <- u
     w[!w[,2]==s,2] <- 0                     # All other places design value is zero
     w[w[,2]==s,2] <- ypoint[s]              # Design value is equal to item number
 

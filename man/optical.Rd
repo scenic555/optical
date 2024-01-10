@@ -6,7 +6,7 @@
 \usage{
 optical(
   ip,
-  BID = NULL,
+  bid = NULL,
   oc = "D",
   uncert = FALSE,
   ipop,
@@ -38,10 +38,10 @@ while the first column contains 'NA' from the second item}
 while 2-PL items have NA in the third column.}
 }}
 
-\item{BID}{Vector of integers indicating the block assignments for items.
-The length of BID should match the number of rows in the 'ip' matrix.
+\item{bid}{Vector of integers indicating the block assignments for items.
+The length of bid should match the number of rows in the 'ip' matrix.
 Each element in the vector specifies which item belongs to which block.
-BID is utilized in the calibration process when dealing with more than 5 items.
+bid is utilized in the calibration process when dealing with more than 5 items.
 Note that the block should exclusively consist of Rasch-type items, 2-PL items,
 3-PL items, or a combination of 2-3PL items. If blocks consist of Rasch-type,
 2-PL, and 3PL items, then we need to introduce a third column with 'NA'
@@ -137,7 +137,7 @@ a<-c(1.62, 0.66,0.92,0.90,0.98,1.40)
 b<-c(-0.47,-0.15,-1.71,1.60,0.62,-1.71)
 ip<-cbind(a,b)
 bid<-c(1,2,2,2,1,1)
-yyy<-optical(ip,BID=bid)
+yyy<-optical(ip,bid=bid)
 yyy
 
 # Example No.3
@@ -149,7 +149,7 @@ yyy
 ip <- cbind(c(1.62,0.66,0.92,0.82,0.90,0.98,0.36,1.40,0.64),
             c(-0.47,-0.15,-1.71,0.33,1.60,0.62,2.84,-1.71,-1.51) )
 bid<-c(1,2,2,3,2,1,1,3,3)
-yyy <- optical(ip,BID=bid,show_progress=2)
+yyy <- optical(ip,bid=bid,show_progress=2)
 yyy
 
 # Example No.4
@@ -162,7 +162,7 @@ yyy
 
 ip<-cbind(c(1.6, NA, NA, 1.2, NA, NA),c(-2, -1.5, -1, 0.5, 1, 1.5))
 bid<-c(1,1,1,2,2,2)
-yyy <- optical(ip,BID=bid,show_progress=2)
+yyy <- optical(ip,bid=bid,show_progress=2)
 yyy
 
 # Example No.5

@@ -2,7 +2,7 @@
 % Please edit documentation in R/print.optical_block.R
 \name{print.optical}
 \alias{print.optical}
-\title{print a optical object}
+\title{print an optical object}
 \usage{
 \method{print}{optical}(x,digits=max(3, getOption("digits")-3),\dots)
 }

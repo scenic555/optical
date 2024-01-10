@@ -20,10 +20,10 @@
 #' while 2-PL items have NA in the third column.}
 #' }
 #'
-#' @param BID Vector of integers indicating the block assignments for items.
-#' The length of BID should match the number of rows in the 'ip' matrix.
+#' @param bid Vector of integers indicating the block assignments for items.
+#' The length of bid should match the number of rows in the 'ip' matrix.
 #' Each element in the vector specifies which item belongs to which block.
-#' BID is utilized in the calibration process when dealing with more than 5 items.
+#' bid is utilized in the calibration process when dealing with more than 5 items.
 #' Note that the block should exclusively consist of Rasch-type items, 2-PL items,
 #' 3-PL items, or a combination of 2-3PL items. If blocks consist of Rasch-type,
 #' 2-PL, and 3PL items, then we need to introduce a third column with 'NA'
@@ -125,7 +125,7 @@
 #' b<-c(-0.47,-0.15,-1.71,1.60,0.62,-1.71)
 #' ip<-cbind(a,b)
 #' bid<-c(1,2,2,2,1,1)
-#' yyy<-optical(ip,BID=bid)
+#' yyy<-optical(ip,bid=bid)
 #' yyy
 #'
 #' # Example No.3
@@ -137,7 +137,7 @@
 #' ip <- cbind(c(1.62,0.66,0.92,0.82,0.90,0.98,0.36,1.40,0.64),
 #'             c(-0.47,-0.15,-1.71,0.33,1.60,0.62,2.84,-1.71,-1.51) )
 #' bid<-c(1,2,2,3,2,1,1,3,3)
-#' yyy <- optical(ip,BID=bid,show_progress=2)
+#' yyy <- optical(ip,bid=bid,show_progress=2)
 #' yyy
 #'
 #' # Example No.4
@@ -150,7 +150,7 @@
 #'
 #' ip<-cbind(c(1.6, NA, NA, 1.2, NA, NA),c(-2, -1.5, -1, 0.5, 1, 1.5))
 #' bid<-c(1,1,1,2,2,2)
-#' yyy <- optical(ip,BID=bid,show_progress=2)
+#' yyy <- optical(ip,bid=bid,show_progress=2)
 #' yyy
 #'
 #' # Example No.5
@@ -180,7 +180,7 @@
 
 
 
-optical<-function(ip,BID=NULL,oc="D", uncert= FALSE,ipop,
+optical<-function(ip,bid=NULL,oc="D", uncert= FALSE,ipop,
                         imf = c(0.005,0.01, 0.02, 0.05, 0.1, 0.2, 0.45),
                         maxiter=rep(300, 6), eps=rep(0.002, 6),
                         nnn=c(0, 50, 50, 200, 200, 200),
@@ -191,12 +191,12 @@ optical<-function(ip,BID=NULL,oc="D", uncert= FALSE,ipop,
 
 starttime <- proc.time()
 # if block is missing then all items are in one block
-if(is.null(BID)) {BID<-rep(1,nrow(ip))}
+if(is.null(bid)) {bid<-rep(1,nrow(ip))}
 
-data<-cbind(ip,BID)
+data<-cbind(ip,bid)
 
 ncol<-ncol(ip)
-Nblock<-length(unique(BID))
+Nblock<-length(unique(bid))
 rownames(ip)<-1:nrow(ip)
 
 bclib<-list();ipar<-list();
@@ -219,7 +219,7 @@ colnames(viomax)<-c("viomax")
 
 
 for(i in 1:Nblock){
-par_bitem<-ip[BID==i,]
+par_bitem<-ip[bid==i,]
 
 
 # If all row of 3rd column is NA then remove that column
