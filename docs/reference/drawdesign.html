@@ -72,37 +72,37 @@ followed by a line representing the item with the minimal directional derivative
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>yyy</dt>
-<dd><p>an <code><a href="optical.html">optical</a></code> object; the output of a call <code><a href="optical.html">optical()</a></code></p></dd>
+<dd><p>an <code><a href="optical.html">optical</a></code> object; the output of a call <code><a href="optical.html">optical()</a></code>.</p></dd>
 
 
 <dt>ablim</dt>
-<dd><p>ability limits; plots will be made in the range [-ablim, ablim]</p></dd>
+<dd><p>ability limits; plots will be made in the range [-ablim, ablim].</p></dd>
 
 
 <dt>ylowl</dt>
-<dd><p>y low level (minimum value of directional derivative shown in the plot)</p></dd>
+<dd><p>y low level (minimum value of directional derivative shown in the plot).</p></dd>
 
 
 <dt>refline</dt>
-<dd><p>reference line corresponding to desired minimum violation of equivalence theorem</p></dd>
+<dd><p>reference line corresponding to desired minimum violation of equivalence theorem.</p></dd>
 
 
 <dt>textout</dt>
 <dd><p>If textout=TRUE (default), the item parameters will be printed if number of items $&lt;5$
-and the efficiency vs. the random design; if textout=FALSE, no such text is printed</p></dd>
+and the efficiency vs. the random design; if textout=FALSE, no such text is printed.</p></dd>
 
 
 <dt>itemnum</dt>
-<dd><p>number of items</p></dd>
+<dd><p>number of items.</p></dd>
 
 
 <dt>layout</dt>
-<dd><p>layouts of plots</p><ul><li><p>Layout 1: third panel has directional derivatives (cut at ylowl or lowest value of dirdev)</p></li>
-<li><p>Layout 2: third panel has violations of equivalence theorem, should be ideally small. Stopping criterion could be &lt;0.002 (refline)</p></li>
-<li><p>Layout 3: third panel monitors efficiency of design vs. iteration number</p></li>
-<li><p>Layout 4: third panel monitors violations of equivalence theorem vs. iteration number</p></li>
-<li><p>Layout 5: third panel shows item characteristic curves</p></li>
-<li><p>Layout 0: only one panel with design</p></li>
+<dd><p>layouts of plots.</p><ul><li><p>Layout 1: third panel has directional derivatives (cut at ylowl or lowest value of dirdev).</p></li>
+<li><p>Layout 2: third panel has violations of equivalence theorem, should be ideally small. Stopping criterion could be &lt;0.002 (refline).</p></li>
+<li><p>Layout 3: third panel monitors efficiency of design vs. iteration number.</p></li>
+<li><p>Layout 4: third panel monitors violations of equivalence theorem vs. iteration number.</p></li>
+<li><p>Layout 5: third panel shows item characteristic curves.</p></li>
+<li><p>Layout 0: only one panel with design.</p></li>
 </ul></dd>
 
 
@@ -140,7 +140,7 @@ and the efficiency vs. the random design; if textout=FALSE, no such text is prin
 <span class="r-in"><span><span class="co"># 2PL-models for six items; the parameters for these items are a=(1.62, 1.4, 0.98, 0.66, 0.92, 0.9),</span></span></span>
 <span class="r-in"><span><span class="co"># and b=(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6), respectively.</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">a</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.62</span>, <span class="fl">1.4</span>,<span class="fl">0.98</span>,<span class="fl">0.66</span>,<span class="fl">0.92</span>,<span class="fl">0.9</span><span class="op">)</span>; <span class="va">b</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.47</span>, <span class="op">-</span><span class="fl">1.71</span>, <span class="fl">0.62</span>,<span class="op">-</span><span class="fl">0.15</span>,<span class="op">-</span><span class="fl">1.71</span>,<span class="fl">1.6</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">a</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.62</span>, <span class="fl">1.4</span>,<span class="fl">0.98</span>,<span class="fl">0.66</span>,<span class="fl">0.92</span>,<span class="fl">0.9</span><span class="op">)</span>; <span class="va">b</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.47</span>,<span class="op">-</span><span class="fl">1.71</span>, <span class="fl">0.62</span>,<span class="op">-</span><span class="fl">0.15</span>,<span class="op">-</span><span class="fl">1.71</span>,<span class="fl">1.6</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">ip</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">bid</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">yyy</span> <span class="op">&lt;-</span> <span class="fu"><a href="optical.html">optical</a></span><span class="op">(</span><span class="va">ip</span>,BID<span class="op">=</span><span class="va">bid</span>,show_progress<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
