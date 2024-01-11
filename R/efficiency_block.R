@@ -9,7 +9,7 @@
 #' @title Efficiency of optimal design
 #'
 #' @description
-#' This function computes the efficiency of the D, I, and A optimal designs
+#' This function computes the efficiency of the D-, I-, and A-optimal designs
 #' compared to the random design for each block.
 #'
 #'
@@ -57,8 +57,8 @@
 #' \dontrun{
 #'
 #' # Example No.2
-#' # 2PL-models for six items; the parameters for these items are a=(1.62, 1.4,0.98,0.66,0.92,0.9),
-#' # and b=(-0.47, -1.71, 0.62,-0.15,-1.71,1.6), respectively.
+#' # 2PL-models for six items; the parameters for these items are a=(1.62, 1.4, 0.98, 0.66, 0.92, 0.9),
+#' # and b=(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6), respectively.
 #'
 #' a <- c(1.62, 1.4, 0.98, 0.66, 0.92, 0.9)
 #' b <- c(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6)

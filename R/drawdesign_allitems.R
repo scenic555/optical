@@ -3,10 +3,10 @@
 #' Create a plot with optimal design for each item. Optimal design is represented
 #' by different colored lines for each item.
 #'
-#' @param yyy  a \code{\link{optical}} object; the output of a call [optical()]
-#' @param linew line width for design
-#' @param ablim ability limits; plots will be made in the range \[-ablim, ablim]
-#' @param colvec  vector of color sequence for items (default is the R-default black, red, green, etc.)
+#' @param yyy  an \code{\link{optical}} object; the output of a call [optical()].
+#' @param linew linewidth for design.
+#' @param ablim ability limits; plots will be made in the range \[-ablim, ablim].
+#' @param colvec  vector of color sequence for items (default is the R-default black, red, green, etc.).
 #'
 #' @export drawdesign_allitems
 #' @importFrom graphics abline axis legend lines mtext par points

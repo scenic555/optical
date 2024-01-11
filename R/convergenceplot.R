@@ -14,13 +14,13 @@
 #'  calibration algorithm.
 #'
 #'
-#' @param yyy   a \code{\link{optical}} object; the output of a call [optical()]
+#' @param yyy   an \code{\link{optical}} object; the output of a call [optical()]
 #' @param refline  reference line
 #'
 #' @details Convergence plots have three panels.
 #'  \itemize{
-#'  \item {First panel monitors efficiency of design vs. iteration number}
-#'  \item {Second panel monitors violations of equivalence theorem vs. iteration number}
+#'  \item {First panel monitors efficiency of design vs. iteration number.}
+#'  \item {Second panel monitors violations of equivalence theorem vs. iteration number.}
 #'  \item {Third panel monitors step size used vs. iteration number.}
 #'   }
 #'
@@ -47,8 +47,8 @@
 #' \dontrun{
 #'
 #' # Example No.2
-#' # 2PL-models for six items; parameters a=(1.62,1.4,0.98,0.66,0.92,0.9),
-#' # and b=(-0.47,-1.71, 0.62,-0.15,-1.71,1.6), respectively.
+#' # 2PL-models for six items; parameters a=(1.62, 1.4, 0.98, 0.66, 0.92, 0.9),
+#' # and b=(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6), respectively.
 #'
 #' a<-c(1.62, 1.4,0.98,0.66,0.92,0.9)
 #' b<-c(-0.47,-1.71,0.62,-0.15,-1.71,1.6)
