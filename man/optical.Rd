@@ -30,7 +30,7 @@ corresponds to the number of items, and columns represent item parameters.
 There are four possible configurations:
 
 \itemize{
-\item{1. 2PL or Rasch-type:}{ The first two columns contain item parameters,
+\item{1. Rasch-type:}{ The first two columns contain item parameters,
 while the first column contains 'NA' from the second item}
 \item{2. 2PL items:}{ First two columns contain item parameters}
 \item{3. 3PL items:}{ All three columns contain item parameters.}
@@ -95,14 +95,14 @@ an object of class ‘optical’ is returned, which is a list with
 following instances:
 
 \item{dd}{list of directional derivatives of optimal solution for each block.}
-\item{ip}{list having matrix of item paramters in each block}
+\item{ip}{list having matrix of item paramters in each block.}
 \item{xi}{list of optimal solution for each block.}
 \item{t}{list of final grid of ability values which was used in each block.}
 \item{viomax}{largest violation of eq.th. from final solution (if < eps, alg.
 has converged, otherwise not).}
 \item{h1}{list of interval boundaries for optimal solution for each block.}
 \item{ht}{list of Refined table of interval boundaries for optimal design with
-calibrated items and their corresponding probabilities for each block}
+calibrated items and their corresponding probabilities for each block.}
 \item{mooiter}{list for each block having monitoring iterations; information
 about each iteration to produce convergence plots.}
 \item{time}{running time of algorithm in minutes.}
@@ -111,7 +111,7 @@ about each iteration to produce convergence plots.}
 }
 \description{
 Calibrate items using a 2PL, 3PL, a mixture of 2PL and 3PL models,
-or a 2PL model with a common discrimination parameter for all items (Rasch-type).
+or a 2PL model with a common discrimination parameter for all items (we call this Rasch-type).
 This versatile function is designed to address calibration challenges involving
 a substantial number of items (100-200) by grouping them into blocks of 3 to 5 items each.
 }
@@ -129,8 +129,8 @@ yyy
 \dontrun{
 
 # Example No.2
-# 2PL-models for six items; parameters a=c(1.62, 0.66,0.92,0.90,0.98,1.40)
-# and b=c(-0.47,-0.15,-1.71,1.60,0.62,,-1.71), respectively.
+# 2PL-models for six items; parameters a=c(1.62, 0.66, 0.92, 0.90, 0.98, 1.40)
+# and b=c(-0.47, -0.15, -1.71, 1.60, 0.62, -1.71), respectively.
 # The calibration of these 6 items with 2PL-models is conducted in two blocks.
 
 a<-c(1.62, 0.66,0.92,0.90,0.98,1.40)
@@ -142,8 +142,8 @@ yyy
 
 # Example No.3
 # Two-parameter logistic (2PL) models were employed for nine items, with
-# parameters set as follows: a=c(1.62, 0.66,0.92,0.82,0.90,0.98,0.36,1.40,0.64)
-# and b=c(-0.47,-0.15,-1.71,0.33,1.60,0.62,2.84,-1.71,-1.51), respectively.
+# parameters set as follows: a=c(1.62, 0.66, 0.92, 0.82, 0.90, 0.98, 0.36, 1.40, 0.64)
+# and b=c(-0.47,-0.15, -1.71, 0.33, 1.60, 0.62, 2.84, -1.71, -1.51), respectively.
 # The calibration of these nine items is conducted using 2PL models in three blocks.
 
 ip <- cbind(c(1.62,0.66,0.92,0.82,0.90,0.98,0.36,1.40,0.64),
@@ -153,7 +153,7 @@ yyy <- optical(ip,bid=bid,show_progress=2)
 yyy
 
 # Example No.4
-# 1PL-models with a common discrimination parameter for six items. (The model
+# 2PL-models with a common discrimination parameter for six items. (The model
 # assumption is that six items have the same discrimination.) Parameters are
 # a=(1.6, NA, NA, 1.2, NA, NA) and b=(-2, -1.5, -1, 0.5, 1, 1.5), respectively.
 # 'NA' for discrimination means that the item has the same parameter as the

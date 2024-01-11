@@ -16,13 +16,13 @@ drawdesign(
 )
 }
 \arguments{
-\item{yyy}{a \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}}
+\item{yyy}{an \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}}
 
 \item{ablim}{ability limits; plots will be made in the range [-ablim, ablim]}
 
 \item{ylowl}{y low level (minimum value of directional derivative shown in the plot)}
 
-\item{refline}{reference line correspond to desired minimum violation of equivalence theorem}
+\item{refline}{reference line corresponding to desired minimum violation of equivalence theorem}
 
 \item{textout}{If textout=TRUE (default), the item parameters will be printed if number of items $<5$
 and the efficiency vs. the random design; if textout=FALSE, no such text is printed}
@@ -45,7 +45,7 @@ and the efficiency vs. the random design; if textout=FALSE, no such text is prin
 An optimal design plot is displayed.
 }
 \description{
-Generate a plot for optimal design within each block, showcasing six possible layouts.
+Generates a plot for the optimal design within each block, showcasing six possible layouts.
 All layouts feature the design first, including efficiency versus random design,
 followed by a line representing the item with the minimal directional derivative.
 }
@@ -55,7 +55,7 @@ followed by a line representing the item with the minimal directional derivative
 # 2PL-model for three items with parameters (a, b) equal to (1.6, -2), (1.6, 0.5),
 # and (1.6, 2) for the first, second, and third items, respectively.
 
-a<-c(1.6, 1.6,1.6); b<-c(-2, 0.5,2)
+a<-c(1.6,1.6,1.6); b<-c(-2,0.5,2)
 ip <- cbind(a,b)
 yyy <- optical(ip)
 drawdesign(yyy, ylowl=-1000, refline=0.002)
@@ -63,8 +63,8 @@ drawdesign(yyy, ylowl=-1000, refline=0.002)
 \dontrun{
 
 # Example No.2
-# 2PL-models for six items; the parameters for these items are a=(1.62, 1.4,0.98,0.66,0.92,0.9),
-# and b=(-0.47, -1.71, 0.62,-0.15,-1.71,1.6), respectively.
+# 2PL-models for six items; the parameters for these items are a=(1.62, 1.4, 0.98, 0.66, 0.92, 0.9),
+# and b=(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6), respectively.
 
 a<-c(1.62, 1.4,0.98,0.66,0.92,0.9); b<-c(-0.47, -1.71, 0.62,-0.15,-1.71,1.6)
 ip<-cbind(a,b)

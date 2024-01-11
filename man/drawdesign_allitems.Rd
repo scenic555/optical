@@ -7,13 +7,13 @@
 drawdesign_allitems(yyy, linew = NULL, ablim = 4, colvec = NULL)
 }
 \arguments{
-\item{yyy}{a \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}}
+\item{yyy}{an \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}.}
 
-\item{linew}{line width for design}
+\item{linew}{linewidth for design.}
 
-\item{ablim}{ability limits; plots will be made in the range [-ablim, ablim]}
+\item{ablim}{ability limits; plots will be made in the range [-ablim, ablim].}
 
-\item{colvec}{vector of color sequence for items (default is the R-default black, red, green, etc.)}
+\item{colvec}{vector of color sequence for items (default is the R-default black, red, green, etc.).}
 }
 \value{
 An optimal design plot is displayed for all items.
