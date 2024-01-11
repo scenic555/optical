@@ -7,9 +7,9 @@
 convergenceplot(yyy, refline = c(0.002, 1e-05))
 }
 \arguments{
-\item{yyy}{an \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}}
+\item{yyy}{an \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}.}
 
-\item{refline}{reference line}
+\item{refline}{reference line.}
 }
 \value{
 A convergence plot is displayed.

@@ -16,27 +16,27 @@ drawdesign(
 )
 }
 \arguments{
-\item{yyy}{an \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}}
+\item{yyy}{an \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}.}
 
-\item{ablim}{ability limits; plots will be made in the range [-ablim, ablim]}
+\item{ablim}{ability limits; plots will be made in the range [-ablim, ablim].}
 
-\item{ylowl}{y low level (minimum value of directional derivative shown in the plot)}
+\item{ylowl}{y low level (minimum value of directional derivative shown in the plot).}
 
-\item{refline}{reference line corresponding to desired minimum violation of equivalence theorem}
+\item{refline}{reference line corresponding to desired minimum violation of equivalence theorem.}
 
 \item{textout}{If textout=TRUE (default), the item parameters will be printed if number of items $<5$
-and the efficiency vs. the random design; if textout=FALSE, no such text is printed}
+and the efficiency vs. the random design; if textout=FALSE, no such text is printed.}
 
-\item{itemnum}{number of items}
+\item{itemnum}{number of items.}
 
-\item{layout}{layouts of plots
+\item{layout}{layouts of plots.
 \itemize{
-\item{Layout 1:} {third panel has directional derivatives (cut at ylowl or lowest value of dirdev)}
-\item{Layout 2:} {third panel has violations of equivalence theorem, should be ideally small. Stopping criterion could be <0.002 (refline)}
-\item{Layout 3:} {third panel monitors efficiency of design vs. iteration number}
-\item{Layout 4:} {third panel monitors violations of equivalence theorem vs. iteration number}
-\item{Layout 5:} {third panel shows item characteristic curves}
-\item{Layout 0:} {only one panel with design}
+\item{Layout 1:} {third panel has directional derivatives (cut at ylowl or lowest value of dirdev).}
+\item{Layout 2:} {third panel has violations of equivalence theorem, should be ideally small. Stopping criterion could be <0.002 (refline).}
+\item{Layout 3:} {third panel monitors efficiency of design vs. iteration number.}
+\item{Layout 4:} {third panel monitors violations of equivalence theorem vs. iteration number.}
+\item{Layout 5:} {third panel shows item characteristic curves.}
+\item{Layout 0:} {only one panel with design.}
 }}
 
 \item{colvec}{vector of color sequence for items (default is the R-default black, red, green, etc.)}
@@ -66,7 +66,7 @@ drawdesign(yyy, ylowl=-1000, refline=0.002)
 # 2PL-models for six items; the parameters for these items are a=(1.62, 1.4, 0.98, 0.66, 0.92, 0.9),
 # and b=(-0.47, -1.71, 0.62, -0.15, -1.71, 1.6), respectively.
 
-a<-c(1.62, 1.4,0.98,0.66,0.92,0.9); b<-c(-0.47, -1.71, 0.62,-0.15,-1.71,1.6)
+a<-c(1.62, 1.4,0.98,0.66,0.92,0.9); b<-c(-0.47,-1.71, 0.62,-0.15,-1.71,1.6)
 ip<-cbind(a,b)
 bid<-c(1,1,1,2,2,2)
 yyy <- optical(ip,BID=bid,show_progress=2)

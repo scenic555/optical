@@ -15,7 +15,7 @@ efficiency(
 )
 }
 \arguments{
-\item{yyy}{a \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}}
+\item{yyy}{a \code{\link{optical}} object; the output of a call \code{\link[=optical]{optical()}}.}
 
 \item{uncert}{if false (default), abilities are assumed to be known; if true,
 handling of uncertainties of Bjermo et al. (2021) is used.}
@@ -26,7 +26,7 @@ handling of uncertainties of Bjermo et al. (2021) is used.}
 \item{oc}{optimality criterion: "D" (D-optimality, default),
 "I" (I-optimality with standard normal weight function), "A" (A-optimality).}
 
-\item{L}{L-matrix (not used for D-optimality)}
+\item{L}{L-matrix (not used for D-optimality).}
 
 \item{items}{If false (default), only total block efficiency is returned. If true,
 for each block, criteria for optimal and random, and the efficiency
