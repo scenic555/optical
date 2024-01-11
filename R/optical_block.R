@@ -13,8 +13,8 @@
 #'
 #' \itemize{
 #' \item{1. Rasch-type:}{ The first two columns contain item parameters,
-#' while the first column contains 'NA' from the second item}
-#' \item{2. 2PL items:}{ First two columns contain item parameters}
+#' while the first column contains 'NA' from the second item.}
+#' \item{2. 2PL items:}{ First two columns contain item parameters.}
 #' \item{3. 3PL items:}{ All three columns contain item parameters.}
 #' \item{4. Mixed 2/3-PL:}{ For 3-PL items, all three columns contain item parameters,
 #' while 2-PL items have NA in the third column.}
