@@ -14,8 +14,8 @@
 #'  calibration algorithm.
 #'
 #'
-#' @param yyy   an \code{\link{optical}} object; the output of a call [optical()]
-#' @param refline  reference line
+#' @param yyy   an \code{\link{optical}} object; the output of a call [optical()].
+#' @param refline  reference line.
 #'
 #' @details Convergence plots have three panels.
 #'  \itemize{

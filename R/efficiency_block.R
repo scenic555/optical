@@ -13,7 +13,7 @@
 #' compared to the random design for each block.
 #'
 #'
-#' @param yyy   a \code{\link{optical}} object; the output of a call [optical()]
+#' @param yyy   a \code{\link{optical}} object; the output of a call [optical()].
 #'
 #' @param uncert if false (default), abilities are assumed to be known; if true,
 #'               handling of uncertainties of Bjermo et al. (2021) is used.
@@ -24,7 +24,7 @@
 #' @param oc optimality criterion: "D" (D-optimality, default),
 #'           "I" (I-optimality with standard normal weight function), "A" (A-optimality).
 #'
-#' @param L     L-matrix (not used for D-optimality)
+#' @param L     L-matrix (not used for D-optimality).
 #'
 #' @param items If false (default), only total block efficiency is returned. If true,
 #'              for each block, criteria for optimal and random, and the efficiency
