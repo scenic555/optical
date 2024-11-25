@@ -1,10 +1,23 @@
 ########################################################################################################################################
 # Calculation of efficiency of design xi versus the random design.
 # If items = FALSE, single value for total block efficiency
-# If items = TRUE, criteria for optimal and random and the efficiency for each item are reported in each column of output;
+# If items = TRUE, criteria for optimal and random and the efficiency for each item are reported in output columns; 
 # last column are then total criteria and efficiency. D-, L-, I-, A-optimality
-# xi= vector of a design to be compared with random design
-# t=vector of abilities
+# Input:
+#  yyy:     design to be compared with the random design
+#  ip:      matrix with item parameters for all items (number of rows determines number of items; 
+#           number of columns is 2 (for 2PL; or 1PL with common a-parameter when NA in first column from second item) 
+#           or 3 (for 3PL; or mixed 2/3-PL with NA for 2PL-items in third column)
+#  uncert:  if FALSE (default), abilities are assumed to be known; if TRUE, handling of uncertainties of Bjermo et al. (2021) is used
+#  ipop:    matrix with item parameters for operational items (used if uncert=TRUE, only)
+#  oc:      optimality criterion: "D" (D-optimality, default), "I" (I-optimality with standard normal weight function), "A"
+#  L:       L-matrix (not for D-optimality)
+#  items:   if FALSE (default), only total block efficiency is returned; 
+#           if TRUE, criterion values for designs and efficiencies are returned for each item and for the total block
+#  integ:   if TRUE (default), integrate() is used for computation of partial information matrices; if FALSE, Riemann rule is used
+# Output:
+#  Relative efficiency vs. random design (if >1 better than random design). 
+#  If items=FALSE, efficiency for whole block of items, otherwise vector of item efficiencies, and last entry is total block efficiency.
 ########################################################################################################################################
 
 # @title Efficiency of optimal design
@@ -62,7 +75,8 @@
 efficiency0 <- function(yyy, ip, uncert=FALSE, ipop, oc="D", L=NULL, items=FALSE,
                        integ=TRUE) {
 
-  t<-yyy$t; xi<-yyy$xi
+  t  <- yyy$t 
+  xi <- yyy$xi
 
   if (items==FALSE) {
     np <- sum(!is.na(ip))        # number of parameters for whole model
@@ -73,11 +87,10 @@ efficiency0 <- function(yyy, ip, uncert=FALSE, ipop, oc="D", L=NULL, items=FALSE
   oc2 <- oc
 
   # calculate elements of matrix at each ability point
-  if (uncert) M <- crit.uncert(t, ip, a_op=ipop[, 1], b_op=ipop[, 2])
-  else {
-  if (integ) M <- crit(t, ip) else M <- critriem(t, ip)
+  if (uncert) M <- crit.uncert(t, ip, ipop=ipop)
+    else {
+      if (integ) M <- crit(t, ip) else M <- critriem(t, ip)
   }
-
 
 
   if (oc=="A" || oc=="I") {
@@ -126,7 +139,7 @@ efficiency0 <- function(yyy, ip, uncert=FALSE, ipop, oc="D", L=NULL, items=FALSE
       np <- sum(!is.na(ip))
       crit_od   <- ocrit(M, xi, oc2, L, items=F)
       crit_rand <- ocritr(M, oc2, L, items=F)
-      efftot    <-exp(crit_rand - crit_od)^(1/np)
+      efftot    <- exp(crit_rand - crit_od)^(1/np)
       }
 
       if(oc=="A" || oc=="I"){
