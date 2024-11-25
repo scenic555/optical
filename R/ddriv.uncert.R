@@ -13,12 +13,6 @@ ddriv.uncert <- function(M, xi, ip, oc, L=NULL, t, ipop) {
   a   <- ip[, 1]
   b   <- ip[, 2]
 
-  I_inv <- function(ao, bo, x) { #square root of inverse information function
-    pq    <- (1/(1+exp(-ao*(x-bo))))*(1-(1/(1+exp(-ao*(x-bo)))))
-    I     <- (ao^2 * pq)
-    I_inv <- 1/sqrt(sum(I))
-    return(I_inv)
-  }
   p_tilde <- function(x,a,b,mu,sigma) { # probability of correct response under uncertainty
     (1/(sigma*sqrt(2*pi)))*exp(-0.5*((x-mu)/sigma)^2)*(1/(1+exp(-a*(x-b))))
   }
