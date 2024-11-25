@@ -8,7 +8,7 @@
 ########################################################################################################################################
 innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf,
                       maxiter=1000, eps=0.001, sss=0.0001, falpha=1.08,
-                      sdr=TRUE, integ=TRUE, xi,show_progress=2) {
+                      sdr=TRUE, integ=TRUE, xi, show_progress=2) {
   n   <- length(t)      # number of different ability levels (grid size)
   k   <- dim(ip)[1]     # number of items
   mod <- dim(ip)[2]     # number of columns in ip (if 2, then 2PL; if 3, then 3PL model)
@@ -19,7 +19,7 @@ innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf,
   xii[1, ] <- xi
 
   # calculate elements of matrix at each ability point: required to calculate directional derivative and criterion log(det(M^-1))
-  if (uncert) M <- crit.uncert(t, ip, a_op=ipop[, 1], b_op=ipop[, 2])
+  if (uncert) M <- crit.uncert(t, ip, ipop=ipop)
   else {
     if (integ) M <- crit(t, ip) else M <- critriem(t, ip)
   }
@@ -44,7 +44,7 @@ innerloop <- function(t, ip, oc="D", L=NULL, uncert=FALSE, ipop, imf,
 
     # calculation of directional derivative
     xi <- xii[mm, ]
-    if (uncert)  dd <- ddriv.uncert(M, xi, ip, oc=oc, L=L, t, a_op=ipop[, 1], b_op=ipop[, 2])
+    if (uncert)  dd <- ddriv.uncert(M, xi, ip, oc=oc, L=L, t, ipop=ipop)
     else       dd <- ddriv(M, xi, ip, oc=oc, L=L, t)
 
     tt <- idwv(dd, xi)
