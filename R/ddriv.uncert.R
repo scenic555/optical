@@ -1,8 +1,9 @@
 ########################################################################################################################################
-# Function to calculate directional derivative for design xi,
+# Function to calculate directional derivative for design xi.
 # Handling of uncertainty in abilities. So far, 2PL, only. D- and L-optimality.
+# Operational items can be of Rasch type ("1PL"), 2PL, or 3PL
 ########################################################################################################################################
-ddriv.uncert <- function(M, xi, ip, oc, L=NULL, t, a_op, b_op) {
+ddriv.uncert <- function(M, xi, ip, oc, L=NULL, t, ipop) {
   k   <- dim(ip)[1]                # number of items
   mod <- dim(ip)[2]                # number of columns in ip (if 2, then 2PL; if 3, then 3PL model)
   n   <- length(t)                 # number of thetas in grid
@@ -22,10 +23,10 @@ ddriv.uncert <- function(M, xi, ip, oc, L=NULL, t, a_op, b_op) {
     (1/(sigma*sqrt(2*pi)))*exp(-0.5*((x-mu)/sigma)^2)*(1/(1+exp(-a*(x-b))))
   }
   eta_1 <- function(x,a,b,theta) {
-    ((-(b-x)*exp(-a*(x-b)))/(1 + exp(-a*(x-b)))^2)*dnorm(x,theta,I_inv(a_op,b_op,theta))
+    ((-(b-x)*exp(-a*(x-b)))/(1 + exp(-a*(x-b)))^2) * dnorm(x, theta, I_inv(ipop, theta))
   }
   eta_2 <- function(x,a,b,theta) {
-    ((-a*exp(-a*(x-b)))/(1 + exp(-a*(x-b)))^2)*dnorm(x,theta,I_inv(a_op,b_op,theta))
+    ((-a*exp(-a*(x-b)))/(1 + exp(-a*(x-b)))^2) * dnorm(x, theta, I_inv(ipop, theta))
   }
 
   for (i in 1:k) {
@@ -42,9 +43,9 @@ ddriv.uncert <- function(M, xi, ip, oc, L=NULL, t, a_op, b_op) {
     for (j in 1:n) {
       # directional derivatives dd[i, j] for item i at theta_j
       if (mod==2 || is.na(c[i])) {
-        eta1 <- integrate(eta_1,a[i],b[i],t[j],lower = -7, upper = 7)$value
-        eta2 <- integrate(eta_2,a[i],b[i],t[j],lower = -7, upper = 7)$value
-        p_ <- integrate(p_tilde,a[i],b[i],t[j],I_inv(a_op,b_op,t[j]),lower = -7, upper = 7)$value
+        eta1 <- integrate(eta_1, a[i], b[i], t[j], lower = -7, upper = 7)$value
+        eta2 <- integrate(eta_2, a[i], b[i], t[j], lower = -7, upper = 7)$value
+        p_ <- integrate(p_tilde, a[i], b[i], t[j], I_inv(ipop, t[j]), lower = -7, upper = 7)$value
 
         dd[i, j] <- np - (1/(p_*(1-p_))) * c(eta1, eta2) %*% Mmid %*% c(eta1, eta2)
         # } else {
