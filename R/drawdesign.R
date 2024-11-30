@@ -55,7 +55,7 @@
 #' a<-c(1.62, 1.4,0.98,0.66,0.92,0.9); b<-c(-0.47,-1.71, 0.62,-0.15,-1.71,1.6)
 #' ip<-cbind(a,b)
 #' bid<-c(1,1,1,2,2,2)
-#' yyy <- optical(ip,BID=bid,show_progress=2)
+#' yyy <- optical(ip,bid=bid,show_progress=2)
 #'
 #' drawdesign(yyy, ylowl=-1000, refline=0.002, layout=5)
 #'
@@ -65,7 +65,7 @@
 
 
 drawdesign<- function(yyy, ablim=7, ylowl=-9999999, refline=0.002, textout=TRUE,
-                        itemnum=NA, layout=1, colvec=1:12)
+                        itemnum=NA, layout=1, which.block=NULL, colvec=1:12)
 
 {
 
@@ -73,6 +73,9 @@ drawdesign<- function(yyy, ablim=7, ylowl=-9999999, refline=0.002, textout=TRUE,
 plots<-list()
 B<-length(yyy$ht)
 
+
+if(!is.numeric(layout) || layout< 0 || layout> 5)
+    {stop("'which' must be in 0:5")}
 
 if(layout<6){
 
@@ -103,33 +106,5 @@ for (i in 1:length(plots)) {
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
