@@ -6,6 +6,8 @@
 #     number of items number of column 2 (2PL) or 3 (3PL or mixed 2/3-PL with NA for
 #    2PL-items in third column).
 ########################################################################################################################################
+
+#' @keywords internal
 start.design <- function(t, ip) {
   mod <- dim(ip)[2]   # number of columns in ip (if 2, then 2PL; if 3, then 3PL model or mixture)
   a   <- ip[, 1]

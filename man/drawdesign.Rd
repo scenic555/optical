@@ -32,12 +32,12 @@ and the efficiency vs. the random design; if textout=FALSE, no such text is prin
 
 \item{layout}{layouts of plots.
 \itemize{
-\item{Layout 1:} {third panel has directional derivatives (cut at ylowl or lowest value of dirdev).}
-\item{Layout 2:} {third panel has violations of equivalence theorem, should be ideally small. Stopping criterion could be <0.002 (refline).}
-\item{Layout 3:} {third panel monitors efficiency of design vs. iteration number.}
-\item{Layout 4:} {third panel monitors violations of equivalence theorem vs. iteration number.}
-\item{Layout 5:} {third panel shows item characteristic curves.}
-\item{Layout 0:} {only one panel with design.}
+\item Layout 1: third panel has directional derivatives (cut at ylowl or lowest value of dirdev).
+\item Layout 2: third panel has violations of equivalence theorem, should be ideally small. Stopping criterion could be <0.002 (refline).
+\item Layout 3: third panel monitors efficiency of design vs. iteration number.
+\item Layout 4: third panel monitors violations of equivalence theorem vs. iteration number.
+\item Layout 5: third panel shows item characteristic curves.
+\item Layout 0: only one panel with design.
 }}
 
 \item{which}{A numeric number which corresponds to a plot for specific block.}

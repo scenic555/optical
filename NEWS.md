@@ -11,4 +11,5 @@
 
 * A new function, `drawdesign_allitems`, has been created to enable users to     display the optimal calibration design for all items in one graph.
 
+* A new function, `calitems`, has been introduced to help users determine the calibration items to allocate to an examinee based on their given ability.
 

@@ -17,12 +17,12 @@
 #' @param itemnum number of items.
 #' @param layout  layouts of plots.
 #' \itemize{
-#'   \item{Layout 1:} {third panel has directional derivatives (cut at ylowl or lowest value of dirdev).}
-#'   \item{Layout 2:} {third panel has violations of equivalence theorem, should be ideally small. Stopping criterion could be <0.002 (refline).}
-#'   \item{Layout 3:} {third panel monitors efficiency of design vs. iteration number.}
-#'   \item{Layout 4:} {third panel monitors violations of equivalence theorem vs. iteration number.}
-#'   \item{Layout 5:} {third panel shows item characteristic curves.}
-#'   \item{Layout 0:} {only one panel with design.}
+#'   \item Layout 1: third panel has directional derivatives (cut at ylowl or lowest value of dirdev).
+#'   \item Layout 2: third panel has violations of equivalence theorem, should be ideally small. Stopping criterion could be <0.002 (refline).
+#'   \item Layout 3: third panel monitors efficiency of design vs. iteration number.
+#'   \item Layout 4: third panel monitors violations of equivalence theorem vs. iteration number.
+#'   \item Layout 5: third panel shows item characteristic curves.
+#'   \item Layout 0: only one panel with design.
 #'   }
 #' @param which   A numeric number which corresponds to a plot for specific block.
 #' @param colvec  vector of color sequence for items (default is the R-default black, red, green, etc.)
@@ -34,7 +34,7 @@
 #' @export drawdesign
 #' @importFrom graphics abline axis legend lines mtext par points
 #'             polygon text box
-#' @importFrom grDevices recordPlot
+#' @importFrom grDevices recordPlot dev.off
 #'
 #' @examples
 #'
@@ -66,53 +66,53 @@
 
 
 drawdesign<- function(yyy, ablim=7, ylowl=-9999999, refline=0.002, textout=TRUE,
-                        itemnum=NA, layout=1, which=NULL, colvec=1:12)
+                      itemnum=NA, layout=1, which=NULL, colvec=1:12)
 
 {
 
-# Create a list to store plots
-plots<-list()
-B<-length(yyy$ht)
+  # Create a list to store plots
+  plots<-list()
+  B<-length(yyy$ht)
+
+  if(!is.numeric(layout) || layout< 0 || layout> 5)
+  {stop("'layout' must be in 0:5")}
 
 
+  for(i in 1:B){
 
-if(!is.numeric(layout) || layout< 0 || layout> 5)
-    {stop("'layout' must be in 0:5")}
-
-
-
-if(layout<6){
-
-for(i in 1:B){
-rr<- list(dd=yyy$dd[[i]],xi=yyy$xi[[i]], t=yyy$t[[i]], viomax=yyy$viomax[[i]],
+    rr<- list(dd=yyy$dd[[i]],xi=yyy$xi[[i]], t=yyy$t[[i]], viomax=yyy$viomax[[i]],
               h1=yyy$h1[[i]], ht=yyy$g[[i]], mooiter = yyy$mooiter[[i]],
               time=yyy$time[i,],  oc =yyy$oc[[i]], L=yyy$L, ip=yyy$ip[[i]])
 
-drawdesign0(rr,ip=rr$ip, ablim, ylowl, refline,textout, itemnum, layout, colvec)
-plots[[i]]<-recordPlot()
-
-oldpar <- par(no.readonly = TRUE)
-on.exit( par(oldpar))  # reset graphical parameters
-}
-
-
-
-# Display plots one by one using Enter key
-if(is.null(which)){
-for (i in 1:length(plots)) {
-  print(plots[[i]])
+    drawdesign0(rr,ip=rr$ip, ablim, ylowl, refline,textout, itemnum, layout, colvec)
+    plots[[i]]<-recordPlot()
+    dev.off()
+    oldpar <- par(no.readonly = TRUE)
+    on.exit( par(oldpar))  # reset graphical parameters
+  }
 
 
-  # Check if it's not the last plot and there are more than one plots
-  if (length(plots)> 1 && i < length(plots)) {
-    # Wait for the Enter key before showing the next plot
-    cat("Press Enter to continue...")
-    invisible(readline())
-  }}}
 
-else{
+  # Display all plots if 'which' is NULL
+  if (is.null(which)) {
+    for (i in 1:length(plots)) {
+      print(plots[[i]])
+      if (length(plots) > 1 && i < length(plots)) {
+        cat("Press Enter to continue...")
+        invisible(readline())
+      }
+    }
+    return(invisible(plots))  # Return plots invisibly when all are shown
+  }
+
+
+  if (!is.numeric(which) || which < 1 || which > B) {
+    stop("'which' must be a number between 1 and the total number of blocks (inclusive).")
+  }
+
+  # Display the specific plot
   print(plots[[which]])
+  return(invisible(plots))  # Return plots invisibly
 }
-}}
 
 
