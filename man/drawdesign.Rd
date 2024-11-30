@@ -12,6 +12,7 @@ drawdesign(
   textout = TRUE,
   itemnum = NA,
   layout = 1,
+  which = NULL,
   colvec = 1:12
 )
 }
@@ -38,6 +39,8 @@ and the efficiency vs. the random design; if textout=FALSE, no such text is prin
 \item{Layout 5:} {third panel shows item characteristic curves.}
 \item{Layout 0:} {only one panel with design.}
 }}
+
+\item{which}{A numeric number which corresponds to a plot for specific block.}
 
 \item{colvec}{vector of color sequence for items (default is the R-default black, red, green, etc.)}
 }
@@ -69,7 +72,7 @@ drawdesign(yyy, ylowl=-1000, refline=0.002)
 a<-c(1.62, 1.4,0.98,0.66,0.92,0.9); b<-c(-0.47,-1.71, 0.62,-0.15,-1.71,1.6)
 ip<-cbind(a,b)
 bid<-c(1,1,1,2,2,2)
-yyy <- optical(ip,BID=bid,show_progress=2)
+yyy <- optical(ip,bid=bid,show_progress=2)
 
 drawdesign(yyy, ylowl=-1000, refline=0.002, layout=5)
 

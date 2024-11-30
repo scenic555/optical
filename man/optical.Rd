@@ -185,7 +185,7 @@ b<-c(-1.5, -0.9, -0.1, -1.5, 0.5, -0.25, 1.1, 0.25, 2, 1.5, -0.5,-2, 0.5, 2)
 c<-c(NA, NA, NA, 0.2, 0.1, NA, NA, NA, 0.05, NA, NA, NA, 0.1, 0.2)
 ip<-cbind(a,b,c)
 bid<-c(1, 2, 2, 3, 3, 1, 2, 1, 3, 1, 4, 4, 4, 4)
-yyy <- optical(ip,show_progress=2)
+yyy <- optical(ip,bid=bid,show_progress=2)
 yyy
 
 }

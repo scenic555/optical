@@ -24,6 +24,7 @@
 #'   \item{Layout 5:} {third panel shows item characteristic curves.}
 #'   \item{Layout 0:} {only one panel with design.}
 #'   }
+#' @param which   A numeric number which corresponds to a plot for specific block.
 #' @param colvec  vector of color sequence for items (default is the R-default black, red, green, etc.)
 #'
 #' @return An optimal design plot is displayed.
@@ -65,7 +66,7 @@
 
 
 drawdesign<- function(yyy, ablim=7, ylowl=-9999999, refline=0.002, textout=TRUE,
-                        itemnum=NA, layout=1, which.block=NULL, colvec=1:12)
+                        itemnum=NA, layout=1, which=NULL, colvec=1:12)
 
 {
 
@@ -74,8 +75,11 @@ plots<-list()
 B<-length(yyy$ht)
 
 
+
 if(!is.numeric(layout) || layout< 0 || layout> 5)
-    {stop("'which' must be in 0:5")}
+    {stop("'layout' must be in 0:5")}
+
+
 
 if(layout<6){
 
@@ -90,7 +94,11 @@ plots[[i]]<-recordPlot()
 oldpar <- par(no.readonly = TRUE)
 on.exit( par(oldpar))  # reset graphical parameters
 }
+
+
+
 # Display plots one by one using Enter key
+if(is.null(which)){
 for (i in 1:length(plots)) {
   print(plots[[i]])
 
@@ -100,11 +108,11 @@ for (i in 1:length(plots)) {
     # Wait for the Enter key before showing the next plot
     cat("Press Enter to continue...")
     invisible(readline())
-  }
-}
+  }}}
 
+else{
+  print(plots[[which]])
 }
-
-}
+}}
 
 
