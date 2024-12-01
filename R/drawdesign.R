@@ -112,6 +112,8 @@ drawdesign<- function(yyy, ablim=7, ylowl=-9999999, refline=0.002, textout=TRUE,
 
   # Display the specific plot
   print(plots[[which]])
+  oldpar <- par(no.readonly = TRUE)
+  on.exit( par(oldpar))  # reset graphical parameters
   return(invisible(plots))  # Return plots invisibly
 }
 
